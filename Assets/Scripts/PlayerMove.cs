@@ -29,10 +29,10 @@ public class PlayerMove : MonoBehaviour
         {
             isWalkFirst = false;
             isIdleNow = false;
-            animator.Play("walk");
+            animator.Play("move");
         }
 
-        if (isIdleNow && x == 0)
+        if (!isIdleNow && x == 0)
         {
             isWalkFirst = true;
             isIdleNow = true;
