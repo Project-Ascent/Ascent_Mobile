@@ -5,17 +5,22 @@ using UnityEngine;
 
 public class FireHook : MonoBehaviour
 {
-    public GameObject prefab;
-    public GameObject firePoint;
+    public GameObject hook;
+    public Transform pos;
+    private float curTime;
 
+    private void Update()
+    {
+        Vector2 len = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float z = Mathf.Atan2(len.y, len.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, z);
+    }
 
     public void OnFire(InputValue value)
     {
         if (value.isPressed)
         {
-            GameObject clone = Instantiate(prefab);
-            clone.transform.position = firePoint.transform.position;
-            clone.transform.rotation = firePoint.transform.rotation;
+            Instantiate(hook, pos.position, transform.rotation);
         }
     }
 }

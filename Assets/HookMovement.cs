@@ -15,6 +15,6 @@ public class HookMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(speed * Time.deltaTime, speed * Time.deltaTime, 0);
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
 }
