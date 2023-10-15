@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 9044425380865118200}
   - component: {fileID: 5177379597081339271}
   - component: {fileID: 7906506518963448147}
-  - component: {fileID: -8364758644529987299}
+  - component: {fileID: 2718536928029223052}
+  - component: {fileID: -5139723253292212263}
   m_Layer: 8
   m_Name: grpplingHook
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.30070576, w: 0.953717}
   m_LocalPosition: {x: 1.7759577, y: -1.168, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -159,7 +160,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-8364758644529987299
+--- !u!232 &2718536928029223052
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5721295519944856190}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 0
+  m_Distance: 2.1256175
+  m_MaxDistanceOnly: 0
+--- !u!114 &-5139723253292212263
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,8 +189,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5721295519944856190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b570b6536b937904384f94a25dbd58d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 85a7186fc16537a4493dc8489b28138f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  delay: 2
+  joint2D: {fileID: 0}

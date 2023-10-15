@@ -7,7 +7,6 @@ public class FireHook : MonoBehaviour
 {
     public GameObject hook;
     public Transform pos;
-    private float curTime;
 
     private void Update()
     {
