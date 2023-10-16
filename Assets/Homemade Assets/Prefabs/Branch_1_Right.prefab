@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4544251267461834954}
   - component: {fileID: 8272694717729010418}
-  - component: {fileID: 6681354814509799882}
+  - component: {fileID: 1665812767424834943}
   m_Layer: 0
   m_Name: Branch_1_Right
   m_TagString: Obstacles
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!68 &6681354814509799882
+--- !u!68 &1665812767424834943
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,18 +114,16 @@ EdgeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.2
+  m_EdgeRadius: 0.05
   m_Points:
-  - {x: -5.0594506, y: 5.036607}
-  - {x: -2.9330626, y: 2.3722217}
-  - {x: -5.174764, y: 5.132689}
-  - {x: -9.47378, y: 1.2719257}
-  - {x: -6.9696846, y: -1.5822833}
-  - {x: 9.844229, y: 0.50366044}
+  - {x: -6.953032, y: -3.1900334}
+  - {x: 0.7826421, y: -1.8033987}
+  - {x: -0.32247865, y: -0.72491884}
+  - {x: 10.502915, y: -0.778057}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
