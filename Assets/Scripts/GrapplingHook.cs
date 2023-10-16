@@ -23,11 +23,11 @@ public class GrapplingHook : MonoBehaviour
         hook.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         line.SetPosition(0, transform.position);
         line.SetPosition(1, hook.position);
+
         if (Input.GetMouseButtonDown(0) && !isHookFired)
         {
             hook.position = transform.position;
@@ -41,10 +41,10 @@ public class GrapplingHook : MonoBehaviour
         {
             hook.Translate(mouseDir.normalized * Time.deltaTime * 15);
 
-            if (Vector2.Distance(transform.position, hook.position) > 5)
+            if (Vector2.Distance(transform.position, hook.position) > 7)
             {
                 isRangeMax = true;
-            }          
+            }
         }
         else if (isHookFired && isRangeMax && !isAttach)
         {
@@ -53,6 +53,7 @@ public class GrapplingHook : MonoBehaviour
             {
                 isHookFired = false;
                 isRangeMax = false;
+                isAttach = false;
                 hook.gameObject.SetActive(false);
             }
         }

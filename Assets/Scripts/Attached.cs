@@ -18,6 +18,7 @@ public class Attached : MonoBehaviour
         if (collision.CompareTag("Obstacles"))
         {
             joint2D.enabled = true;
+            grappling.isRangeMax = true;
             grappling.isAttach = true;
         }
     }
