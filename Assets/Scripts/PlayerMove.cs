@@ -13,10 +13,14 @@ public class PlayerMove : MonoBehaviour
     private bool isIdleNow = false;
     private Animator animator;
 
+    GrapplingHook grappling;
+    FixedJoint2D fixjoint;
+
     private void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+        grappling = GetComponent<GrapplingHook>();
     }
 
     private void FixedUpdate()
@@ -25,7 +29,7 @@ public class PlayerMove : MonoBehaviour
 
         moveDelta = new Vector3(x, 0, 0);
 
-        if (isWalkFirst && x != 0)
+        if (isWalkFirst && x != 0 && !grappling.isAttach)
         {
             isWalkFirst = false;
             isIdleNow = false;
@@ -38,6 +42,14 @@ public class PlayerMove : MonoBehaviour
             isIdleNow = true;
             animator.Play("idle");
         }
+
+        if (grappling.isAttach)
+        {
+            isWalkFirst = true;
+            isIdleNow = true;
+            animator.Play("idle");
+        }
+
 
 
         if (moveDelta.x > 0)
