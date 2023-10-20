@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5732964530719043553}
   - component: {fileID: 7550655526537587785}
   - component: {fileID: 3537389368256707855}
+  - component: {fileID: -2143124748404121953}
   m_Layer: 0
   m_Name: Thorn_1_Left
   m_TagString: Obstacles
@@ -129,3 +130,16 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &-2143124748404121953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849798937862780335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0117294ddf218fa4d9c1885895dfee05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
