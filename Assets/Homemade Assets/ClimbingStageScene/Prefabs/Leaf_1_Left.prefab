@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2135113524619810180}
   - component: {fileID: 7927276623295588025}
-  - component: {fileID: 4226365551017480886}
+  - component: {fileID: 8393716242511786648}
   m_Layer: 0
   m_Name: Leaf_1_Left
   m_TagString: Obstacles
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!68 &4226365551017480886
+--- !u!68 &8393716242511786648
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,13 +118,15 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.4
+  m_EdgeRadius: 0.04
   m_Points:
-  - {x: -1.1055287, y: -0.2445156}
-  - {x: -0.5176203, y: 0.37024933}
-  - {x: 0.08173686, y: 1.3430127}
-  - {x: 0.33669764, y: 1.6781812}
-  - {x: 1.4967537, y: 2.0501645}
+  - {x: -0.94342005, y: -2.2115579}
+  - {x: -1.1968851, y: -1.2628837}
+  - {x: -0.6625829, y: -0.96735126}
+  - {x: -0.09370977, y: -0.36525834}
+  - {x: 1.110381, y: 1.4672098}
+  - {x: 1.9320927, y: 1.9613553}
+  - {x: 2.216685, y: 1.6008348}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

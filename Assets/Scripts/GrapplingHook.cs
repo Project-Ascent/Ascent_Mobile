@@ -10,6 +10,7 @@ public class GrapplingHook : MonoBehaviour
     public Transform hook;
     Vector2 mouseDir;
 
+    public float launchSpeed;
     public bool isHookFired;
     public bool isRangeMax;
     public bool isAttach;
@@ -39,7 +40,7 @@ public class GrapplingHook : MonoBehaviour
         }
         if (isHookFired && !isRangeMax)
         {
-            hook.Translate(mouseDir.normalized * Time.deltaTime * 15);
+            hook.Translate(mouseDir.normalized * Time.deltaTime * launchSpeed);
 
             if (Vector2.Distance(transform.position, hook.position) > 7)
             {
@@ -48,7 +49,7 @@ public class GrapplingHook : MonoBehaviour
         }
         else if (isHookFired && isRangeMax && !isAttach)
         {
-            hook.position = Vector2.MoveTowards(hook.position, transform.position, Time.deltaTime * 15);
+            hook.position = Vector2.MoveTowards(hook.position, transform.position, Time.deltaTime * 1000);
             if (Vector2.Distance(transform.position, hook.position) < 0.1f)
             {
                 isHookFired = false;
