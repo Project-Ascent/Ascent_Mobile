@@ -5,6 +5,7 @@ using UnityEngine;
 public class Life : MonoBehaviour
 {
     public float amount;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class Life : MonoBehaviour
     void Update()
     {
         if (amount == 2)
-        {
+        {   
             Destroy(GameObject.Find("Life_3"));
         }else if (amount == 1)
         {
