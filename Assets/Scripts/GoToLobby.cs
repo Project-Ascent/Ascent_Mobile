@@ -7,7 +7,7 @@ public class GoToLobby : MonoBehaviour
 
     public void SceneChange()
     {
-        SceneManager.LoadScene("InventoryScene");
+        SceneManager.LoadScene("LobbyScene");
     }
     // Start is called before the first frame update
     void Start()
