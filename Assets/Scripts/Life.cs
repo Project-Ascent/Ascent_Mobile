@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Life : MonoBehaviour
 {
@@ -24,6 +25,12 @@ public class Life : MonoBehaviour
         }else if (amount <= 0)
         {
             Destroy(GameObject.Find("Life_1"));
+            Invoke("RestartGame", 0f);
         }
+    }
+
+    void RestartGame()
+    {
+        SceneManager.LoadScene("GameOverScene");
     }
 }
