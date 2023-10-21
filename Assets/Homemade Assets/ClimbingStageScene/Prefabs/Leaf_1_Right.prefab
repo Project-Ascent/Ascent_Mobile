@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2135113524619810180}
   - component: {fileID: 7927276623295588025}
   - component: {fileID: 236340953734248783}
+  - component: {fileID: -1330768735265576481}
   m_Layer: 0
   m_Name: Leaf_1_Right
   m_TagString: Obstacles
@@ -131,3 +132,16 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &-1330768735265576481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234058798200122276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da66dad6dbed4a4f87b157b3ee5bb2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTouched: 0
