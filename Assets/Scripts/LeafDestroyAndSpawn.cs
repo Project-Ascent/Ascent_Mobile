@@ -6,14 +6,17 @@ public class LeafDestroyAndSpawn : MonoBehaviour
 {
     public bool isTouched = false;
     Vector2 leafPosition;
+    Vector2 hookPosition;
 
     GrapplingHook grappling;
     public DistanceJoint2D joint2D;
+    private int fireCount = 0;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.name == "grapplingHook")
         {
             isTouched = true;
+            hookPosition = grappling.hook.position;
             Invoke("DestroyLeafAndSpawn", 2f);
         }
     }
@@ -21,10 +24,17 @@ public class LeafDestroyAndSpawn : MonoBehaviour
     void DestroyLeafAndSpawn()
     {
         leafPosition = transform.position;
-        // grappling.isHookFired = false;
-        grappling.hook.GetComponent<Attached>().joint2D.enabled = false;
-        grappling.isRangeMax = true;
-        grappling.isAttach = false;
+
+        // 거리 임계값 설정
+        float distanceThreshold = 0f;
+        // grappling.hook.position과 hookPosition 사이의 거리 계산
+        float distance = Vector2.Distance(hookPosition, grappling.hook.position);
+        if (distance == distanceThreshold)
+        {
+            grappling.hook.GetComponent<Attached>().joint2D.enabled = false;
+            grappling.isRangeMax = true;
+            grappling.isAttach = false;
+        }
         Destroy(gameObject);
         Invoke("SpawnNewLeaf", 3f);
     }
