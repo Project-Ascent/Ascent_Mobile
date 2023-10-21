@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class CameraMovement : MonoBehaviour
 {
-    public float cameraSpeed = 5.0f;
+    public float cameraSpeed = 4.7f;
     public bool death = false;
     public GameObject player;
 
@@ -12,9 +12,9 @@ public class CameraMovement : MonoBehaviour
     {
        
         Vector3 dir = player.transform.position - this.transform.position;
-        if (dir.y + Camera.main.orthographicSize <0)
+        if (dir.y + Camera.main.orthographicSize < -1)
         {
-            //death = true;
+            // death = true;
             Invoke("RestartGame", 0.1f);
             
         }
@@ -28,6 +28,6 @@ public class CameraMovement : MonoBehaviour
 
     void RestartGame()
     {
-        //SceneManager.LoadScene("GameOverScene");
+        SceneManager.LoadScene("GameOverScene");
     }
 }
