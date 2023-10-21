@@ -10,13 +10,20 @@ public class LeafDestroyAndSpawn : MonoBehaviour
     {
         if (other.name == "grapplingHook")
         {
+            isTouched = true;
+
+            Invoke("DestroyLeaf", 2f);
         }
+    }
+
+    void DestroyLeaf()
+    {
+
     }
 
 
     void Start()
     {
-        
     }
 
     // Update is called once per frame
