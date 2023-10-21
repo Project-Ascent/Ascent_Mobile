@@ -14,7 +14,7 @@ public class CameraMovement : MonoBehaviour
         Vector3 dir = player.transform.position - this.transform.position;
         if (dir.y + Camera.main.orthographicSize <0)
         {
-            death = true;
+            //death = true;
             Invoke("RestartGame", 0.1f);
             
         }
@@ -28,6 +28,6 @@ public class CameraMovement : MonoBehaviour
 
     void RestartGame()
     {
-        SceneManager.LoadScene("GameOverScene");
+        //SceneManager.LoadScene("GameOverScene");
     }
 }
