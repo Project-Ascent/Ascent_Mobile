@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Attached : MonoBehaviour
 {
@@ -21,10 +22,23 @@ public class Attached : MonoBehaviour
             grappling.isRangeMax = true;
             grappling.isAttach = true;
         }
+
+        if (collision.CompareTag("FinishObject"))
+        {
+            joint2D.enabled = true;
+            grappling.isRangeMax = true;
+            grappling.isAttach = true;
+            Invoke("goToBossStage", 0.1f);
+        }
     }
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void goToBossStage()
+    {
+        SceneManager.LoadScene("BossStageScene");
     }
 }
