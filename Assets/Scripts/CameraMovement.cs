@@ -18,10 +18,9 @@ public class CameraMovement : MonoBehaviour
             Invoke("RestartGame", 0.1f);
             
         }
-        if (!death)
+        if (!death && player.transform.position.y < 92)
         {
             Vector3 moveVector = new Vector3(0.0f, (dir.y + 3.8f) * cameraSpeed * Time.deltaTime, 0.0f);
-            
             this.transform.Translate(moveVector);
         }
     }
