@@ -1991,7 +1991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5721295519944856190, guid: 7dfe232286835fa409322f245dcc7f9c, type: 3}
       propertyPath: m_Name
-      value: grpplingHook
+      value: grapplingHook
       objectReference: {fileID: 0}
     - target: {fileID: 6092627952965346289, guid: 7dfe232286835fa409322f245dcc7f9c, type: 3}
       propertyPath: m_LocalScale.x
@@ -7594,6 +7594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d814a7e671ca5d42a07a4daad74311f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAttachedOnBird: 0
 --- !u!1001 &2048806995
 PrefabInstance:
   m_ObjectHideFlags: 0
