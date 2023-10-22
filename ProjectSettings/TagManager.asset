@@ -7,6 +7,7 @@ TagManager:
   - Obstacles
   - Life
   - FinishObject
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Obstacles
   - PlayerHook
   - EnemyAttack
-  - 
+  - Boss
   - 
   - 
   - 

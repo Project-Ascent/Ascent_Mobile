@@ -7,13 +7,19 @@ public class BossMove : MonoBehaviour
 {
     private Animator animator;
     private Vector3 dir;
-    private Vector3 moveDelta;
     System.Random rand;
-    
+
     public GameObject Target;
+    private float targetY;
+    private float motionTime;
+
     public float waitingTime;
     public float repeatTime;
 
+    public GameObject rock;
+    public GameObject musicNote;
+    public GameObject throwRockPoint;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +30,12 @@ public class BossMove : MonoBehaviour
 
     void bossAct()
     {
+        motionTime = 0;
         double op = rand.NextDouble();
-        float targetY = Target.transform.position.y;
+        //op = 0.3f;
         if (op < 0.2f)
         {
             animator.Play("boss_walk");
-            //moveDelta = new Vector3(dir.x, 0, 0);
-            //transform.Translate(moveDelta * Time.deltaTime * 2);
         }
         else if (op < 0.4f)
         {
@@ -65,8 +70,12 @@ public class BossMove : MonoBehaviour
 
     private void Update()
     {
+        motionTime += 1;
+        targetY = Target.transform.position.y;
         dir = Target.transform.position - transform.position;
         dir.x = dir.x / System.Math.Abs(dir.x);
+        dir.y = dir.y / System.Math.Abs(dir.y);
+        
         if (dir.x > 0)
         {
             transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
@@ -75,6 +84,49 @@ public class BossMove : MonoBehaviour
         {
             transform.localScale = new Vector3(-0.8f, 0.8f, 0.8f);
         }
+
+        var cur_animation = animator.GetCurrentAnimatorStateInfo(0);
+        if (cur_animation.IsName("boss_walk"))
+        {
+            transform.Translate(dir.x * Time.deltaTime * 2, 0, 0);
+        }
+        else if (cur_animation.IsName("boss_jump"))
+        {   
+            if(transform.position.y < -0.5)
+            {
+                dir.y = 0.1f;
+            }
+            else if (motionTime < 54 || motionTime >257)
+            {
+                dir.x = 0;
+                dir.y = 0;
+            }
+            else if(motionTime < 153)
+            {
+                dir.y = 1;
+            }
+            else if(motionTime >= 153 || transform.position.y > 6)
+            {
+                dir.y = -1;
+            }
+
+            transform.Translate(dir.x * Time.deltaTime * 2,
+                dir.y * Time.deltaTime * 10,
+                0);
+        }
+        else if (cur_animation.IsName("boss_body_slam"))
+        {
+            if(motionTime < 96)
+            {
+                dir.x = 0;
+            }
+            transform.Translate(dir.x * Time.deltaTime * 10, 0, 0);
+        }
+    }
+
+    void idleAnimation()
+    {
+        animator.Play("boss_stand");
     }
     
 }
