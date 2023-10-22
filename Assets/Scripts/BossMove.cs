@@ -18,7 +18,11 @@ public class BossMove : MonoBehaviour
 
     public GameObject rock;
     public GameObject musicNote;
+    public GameObject fallingRock;
+
     public GameObject throwRockPoint;
+    public GameObject musicNotePoint;
+    public GameObject fallingRockPoint;
     
     // Start is called before the first frame update
     void Start()
@@ -38,7 +42,7 @@ public class BossMove : MonoBehaviour
 
         dy = 0; dx = 0;
         double op = rand.NextDouble();
-        //op = 0.3f;
+        //op = 0.9f;
         if (op < 0.2f)
         {
             animator.Play("boss_walk");
@@ -52,16 +56,19 @@ public class BossMove : MonoBehaviour
         else if (op < 0.6f)
         {
             animator.Play("boss_falling_rock");
+            Invoke("fallingRockTiming", 1);
         }
         else if (op < 0.8f)
         {
             animator.Play("boss_throw_rock");
+            Invoke("throwTiming", 0.6f);
         }
         else
         {
             if (targetY > 8)
             {
                 animator.Play("boss_music_note");
+                Invoke("musicNoteTiming", 1);
             }
             else
             {
@@ -98,6 +105,24 @@ public class BossMove : MonoBehaviour
         }
     }
 
+    void throwTiming()
+    {
+        GameObject clone = Instantiate(rock);
+        clone.transform.position = throwRockPoint.transform.position;
+        Destroy(clone, 10);
+    }
+    void fallingRockTiming()
+    {
+        GameObject clone1 = Instantiate(fallingRock);
+        clone1.transform.position = fallingRockPoint.transform.position;
+        Destroy(clone1, 10);
+    }
+    void musicNoteTiming()
+    {
+        GameObject clone2 = Instantiate(musicNote);
+        clone2.transform.position = musicNotePoint.transform.position;
+        Destroy(clone2, 10);
+    }
     void jumpTiming()
     {
         dy = 10; dx = dir.x * 3;
