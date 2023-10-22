@@ -11,7 +11,7 @@ public class BossMove : MonoBehaviour
 
     public GameObject Target;
     private float targetY;
-    private float motionTime;
+    private float dy, dx;
 
     public float waitingTime;
     public float repeatTime;
@@ -30,16 +30,24 @@ public class BossMove : MonoBehaviour
 
     void bossAct()
     {
-        motionTime = 0;
+        dir = Target.transform.position - transform.position;
+        dir.x = dir.x / System.Math.Abs(dir.x);
+        dir.y = dir.y / System.Math.Abs(dir.y);
+
+        transform.localScale = new Vector3(0.8f * dir.x, 0.8f, 0.8f);
+
+        dy = 0; dx = 0;
         double op = rand.NextDouble();
         //op = 0.3f;
         if (op < 0.2f)
         {
             animator.Play("boss_walk");
+            dy = 0; dx = dir.x * 3;
         }
         else if (op < 0.4f)
         {
             animator.Play("boss_jump");
+            Invoke("jumpTiming", 0.6f);
         }
         else if (op < 0.6f)
         {
@@ -58,6 +66,7 @@ public class BossMove : MonoBehaviour
             else
             {
                 animator.Play("boss_body_slam");
+                Invoke("bodySlamTiming", 0.6f);
             }
         }
     }
@@ -70,63 +79,42 @@ public class BossMove : MonoBehaviour
 
     private void Update()
     {
-        motionTime += 1;
+        if (transform.position.x < -8.5 && dx < 0)
+        {
+            dx = 0;
+        }
+        else if (transform.position.x > 8.5 && dx > 0)
+        {
+            dx = 0;
+        }
         targetY = Target.transform.position.y;
-        dir = Target.transform.position - transform.position;
-        dir.x = dir.x / System.Math.Abs(dir.x);
-        dir.y = dir.y / System.Math.Abs(dir.y);
         
-        if (dir.x > 0)
-        {
-            transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-        }
-        else if (dir.x < 0)
-        {
-            transform.localScale = new Vector3(-0.8f, 0.8f, 0.8f);
-        }
-
         var cur_animation = animator.GetCurrentAnimatorStateInfo(0);
-        if (cur_animation.IsName("boss_walk"))
+        if (cur_animation.IsName("boss_walk") ||
+            cur_animation.IsName("boss_jump") ||
+            cur_animation.IsName("boss_body_slam"))
         {
-            transform.Translate(dir.x * Time.deltaTime * 2, 0, 0);
-        }
-        else if (cur_animation.IsName("boss_jump"))
-        {   
-            if(transform.position.y < -0.5)
-            {
-                dir.y = 0.1f;
-            }
-            else if (motionTime < 54 || motionTime >257)
-            {
-                dir.x = 0;
-                dir.y = 0;
-            }
-            else if(motionTime < 153)
-            {
-                dir.y = 1;
-            }
-            else if(motionTime >= 153 || transform.position.y > 6)
-            {
-                dir.y = -1;
-            }
-
-            transform.Translate(dir.x * Time.deltaTime * 2,
-                dir.y * Time.deltaTime * 10,
-                0);
-        }
-        else if (cur_animation.IsName("boss_body_slam"))
-        {
-            if(motionTime < 96)
-            {
-                dir.x = 0;
-            }
-            transform.Translate(dir.x * Time.deltaTime * 10, 0, 0);
+            transform.Translate(dx * Time.deltaTime, dy * Time.deltaTime, 0);
         }
     }
 
-    void idleAnimation()
+    void jumpTiming()
     {
-        animator.Play("boss_stand");
+        dy = 10; dx = dir.x * 3;
+        Invoke("downTiming", 0.55f);
     }
-    
+    void downTiming()
+    {
+        dy = -10; dx = dir.x * 3;
+        Invoke("stopTiming", 0.55f);
+    }
+    void stopTiming()
+    {
+        dy = 0; dx = 0;
+    }
+    void bodySlamTiming()
+    {
+        dy = 0; dx = dir.x * 10;
+        Invoke("stopTiming", 2);
+    }
 }
