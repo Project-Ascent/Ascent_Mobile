@@ -119,15 +119,15 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.04
+  m_EdgeRadius: 0.1
   m_Points:
-  - {x: -0.94342005, y: -2.2115579}
-  - {x: -1.1968851, y: -1.2628837}
-  - {x: -0.6625829, y: -0.96735126}
-  - {x: -0.09370977, y: -0.36525834}
-  - {x: 1.110381, y: 1.4672098}
-  - {x: 1.9320927, y: 1.9613553}
-  - {x: 2.216685, y: 1.6008348}
+  - {x: -1.0231936, y: -2.0586584}
+  - {x: -1.2075225, y: -1.1166337}
+  - {x: -0.44453627, y: -0.61501944}
+  - {x: 0.19347441, y: 0.17986012}
+  - {x: 0.9401974, y: 1.4406185}
+  - {x: 1.5757712, y: 1.9281166}
+  - {x: 2.168821, y: 1.660665}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -145,3 +145,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTouched: 0
+  joint2D: {fileID: 0}

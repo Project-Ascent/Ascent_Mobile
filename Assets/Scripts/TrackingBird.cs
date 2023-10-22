@@ -28,6 +28,7 @@ public class TrackingBird : MonoBehaviour
     }
 
 
+
     void Start()
     {
         grappling = GameObject.Find("Player").GetComponent<GrapplingHook>();
