@@ -39,7 +39,7 @@ public class TrackingBird : MonoBehaviour
         if (isAttachedOnBird && grappling.isAttach)
         {
             birdPosition = transform.position;
-            hookPosition = birdPosition - distance;
+            hookPosition = birdPosition;
             grappling.hook.position = hookPosition;
         }
 

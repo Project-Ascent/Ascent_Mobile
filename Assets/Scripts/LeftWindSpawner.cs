@@ -7,7 +7,7 @@ public class LeftWindSpawner : MonoBehaviour
     public GameObject windPrefab;
     void Start()
     {
-        InvokeRepeating("SpawnWind", 0f, 5f);
+        InvokeRepeating("SpawnWind", 0f, 7f);
     }
 
     // Update is called once per frame
