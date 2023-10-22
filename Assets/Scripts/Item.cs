@@ -11,7 +11,7 @@ public class Item : MonoBehaviour
     public bool harp = false;
 
 
-    private void Awake()
+    void Awake()
     {
         if (item != null)
         {
