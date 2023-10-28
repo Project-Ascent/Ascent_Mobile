@@ -10,6 +10,7 @@ public class Life : MonoBehaviour
     public Image life2;
     public Image life1;
     public bool isPlay = false;
+    public float currentLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +51,21 @@ public class Life : MonoBehaviour
 
     void RestartGame()
     {
-        SceneManager.LoadScene("GameOverScene");
+        if (currentLevel == 1)
+        {
+            SceneManager.LoadScene("GameOverScene1");
+        }
+        if (currentLevel == 2)
+        {
+            SceneManager.LoadScene("GameOverScene1");
+        }
+        if (currentLevel == 3)
+        {
+            SceneManager.LoadScene("GameOverScene3");
+        }
+        if (currentLevel == 4)
+        {
+            SceneManager.LoadScene("GameOverSceneBoss");
+        }
     }
 }

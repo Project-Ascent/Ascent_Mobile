@@ -3229,6 +3229,7 @@ MonoBehaviour:
   cameraSpeed: 5
   death: 0
   player: {fileID: 770221915}
+  currentLevel: 2
 --- !u!1001 &655340197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7153,6 +7154,10 @@ PrefabInstance:
       propertyPath: life3
       value: 
       objectReference: {fileID: 596984491}
+    - target: {fileID: 8775105034055016523, guid: 9f71f55252ced8a4f9c2dbb7a15170fd, type: 3}
+      propertyPath: currentLevel
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5446034461531400593, guid: 9f71f55252ced8a4f9c2dbb7a15170fd, type: 3}

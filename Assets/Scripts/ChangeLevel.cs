@@ -23,6 +23,10 @@ public class ChangeLevel : MonoBehaviour
         {
             SceneManager.LoadScene("ClimbingLevel3");
         }
+        if (level == 4)
+        {
+            SceneManager.LoadScene("BossStageScene");
+        }
     }
 
     // Start is called before the first frame update
