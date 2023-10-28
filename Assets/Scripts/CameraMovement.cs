@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour
     public float cameraSpeed = 4.7f;
     public bool death = false;
     public GameObject player;
+    public float currentLevel;
 
     void Update()
     {
@@ -27,6 +28,21 @@ public class CameraMovement : MonoBehaviour
 
     void RestartGame()
     {
-        SceneManager.LoadScene("GameOverScene");
+        if (currentLevel == 1)
+        {
+            SceneManager.LoadScene("GameOverScene1");
+        }
+        if (currentLevel == 2)
+        {
+            SceneManager.LoadScene("GameOverScene1");
+        }
+        if (currentLevel == 3)
+        {
+            SceneManager.LoadScene("GameOverScene3");
+        }
+        if (currentLevel == 4)
+        {
+            SceneManager.LoadScene("GameOverSceneBoss");
+        }
     }
 }
