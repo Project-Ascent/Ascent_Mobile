@@ -43,10 +43,7 @@ public class boss_life : MonoBehaviour
             life3.enabled = false;
             life2.enabled = false;
             life1.enabled = false;
-            Item.item.beans = true;
-            Item.item.airballon = true;
-            Item.item.goose = true;
-            Item.item.harp = true;
+            
 
             SceneManager.LoadScene("WinScene");
         }

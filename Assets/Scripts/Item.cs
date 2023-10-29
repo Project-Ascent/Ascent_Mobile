@@ -8,7 +8,7 @@ public class Item : MonoBehaviour
     public bool beans=false;
     public bool airballon=false;
     public bool goose=false;
-    public bool harp=false;
+    
 
     private void Awake()
     {

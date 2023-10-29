@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class ThornDetect : MonoBehaviour
 {
+    public static ThornDetect td;
     public float damage;
     public bool isDamaged = false;
     public Life life;
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.name=="Player")
+        if(other.name=="Player"&&!ItemSelected.IS.checkDamaged)
         {
             life = other.gameObject.GetComponent<Life>();
 
