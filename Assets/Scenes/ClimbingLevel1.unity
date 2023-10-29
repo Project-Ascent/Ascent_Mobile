@@ -4844,6 +4844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: {fileID: 0}
   checkDamaged: 0
+  item: ' '
 --- !u!1001 &1437389537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6007,11 +6008,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8040504277576907812, guid: 9f71f55252ced8a4f9c2dbb7a15170fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.88
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8040504277576907812, guid: 9f71f55252ced8a4f9c2dbb7a15170fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 88.21
+      value: -2.11
       objectReference: {fileID: 0}
     - target: {fileID: 8040504277576907812, guid: 9f71f55252ced8a4f9c2dbb7a15170fd, type: 3}
       propertyPath: m_LocalPosition.z

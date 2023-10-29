@@ -459,14 +459,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 236340953734248783, guid: 4420a209fc07d1543a3d128bc7a5350b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 236340953734248783, guid: 4420a209fc07d1543a3d128bc7a5350b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6583519785937454074, guid: ff5a04ce624a5c9428bf043332b72d58, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.02
@@ -510,6 +502,14 @@ PrefabInstance:
     - target: {fileID: 8648324112360409153, guid: ff5a04ce624a5c9428bf043332b72d58, type: 3}
       propertyPath: m_Name
       value: RightLeafSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 236340953734248783, guid: 4420a209fc07d1543a3d128bc7a5350b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 236340953734248783, guid: 4420a209fc07d1543a3d128bc7a5350b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -3735,14 +3735,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 236340953734248783, guid: 4420a209fc07d1543a3d128bc7a5350b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 236340953734248783, guid: 4420a209fc07d1543a3d128bc7a5350b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6583519785937454074, guid: ff5a04ce624a5c9428bf043332b72d58, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.73
@@ -3786,6 +3778,14 @@ PrefabInstance:
     - target: {fileID: 8648324112360409153, guid: ff5a04ce624a5c9428bf043332b72d58, type: 3}
       propertyPath: m_Name
       value: RightLeafSpawner (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 236340953734248783, guid: 4420a209fc07d1543a3d128bc7a5350b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 236340953734248783, guid: 4420a209fc07d1543a3d128bc7a5350b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -5900,6 +5900,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3793fb5fbd9d7444baed8b5d31fd53aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: {fileID: 0}
+  checkDamaged: 0
+  item: ' '
 --- !u!1 &1450093915
 GameObject:
   m_ObjectHideFlags: 0
@@ -6723,14 +6726,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 236340953734248783, guid: 4420a209fc07d1543a3d128bc7a5350b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 236340953734248783, guid: 4420a209fc07d1543a3d128bc7a5350b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6583519785937454074, guid: ff5a04ce624a5c9428bf043332b72d58, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.07
@@ -6774,6 +6769,14 @@ PrefabInstance:
     - target: {fileID: 8648324112360409153, guid: ff5a04ce624a5c9428bf043332b72d58, type: 3}
       propertyPath: m_Name
       value: RightLeafSpawner (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 236340953734248783, guid: 4420a209fc07d1543a3d128bc7a5350b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 236340953734248783, guid: 4420a209fc07d1543a3d128bc7a5350b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -7094,7 +7097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8040504277576907812, guid: 9f71f55252ced8a4f9c2dbb7a15170fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.49
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8040504277576907812, guid: 9f71f55252ced8a4f9c2dbb7a15170fd, type: 3}
       propertyPath: m_LocalPosition.y
