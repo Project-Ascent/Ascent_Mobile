@@ -4786,6 +4786,10 @@ PrefabInstance:
       propertyPath: life3
       value: 
       objectReference: {fileID: 441115908}
+    - target: {fileID: 8775105034055016523, guid: 9f71f55252ced8a4f9c2dbb7a15170fd, type: 3}
+      propertyPath: currentLevel
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5446034461531400593, guid: 9f71f55252ced8a4f9c2dbb7a15170fd, type: 3}
