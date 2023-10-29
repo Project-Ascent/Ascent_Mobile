@@ -7,7 +7,7 @@ public class ItemSelected : MonoBehaviour
     public static ItemSelected IS;
     public Life life;
     public bool checkDamaged;
-
+    public string item = " ";
     private void Awake()
     {
         if (IS != null)
@@ -69,10 +69,9 @@ public class ItemSelected : MonoBehaviour
     }
     void GooseFinish()
     {
-        
-            
-     
-        
+
+
+
         checkDamaged = false;
         Item.item.goose = false;
         
@@ -83,8 +82,8 @@ public class ItemSelected : MonoBehaviour
     {
         if (Item.item.beans)
         {
-            
-          
+
+            item = "b";
             Life life = GameObject.Find("Player").GetComponent<Life>();
             if (life.amount < 3)
             {
@@ -94,6 +93,7 @@ public class ItemSelected : MonoBehaviour
         }
         else if (Item.item.airballon)
         {
+            item = "a";
             Rigidbody2D rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
             rb.drag = 20;
             Item.item.airballon = false;
@@ -102,6 +102,8 @@ public class ItemSelected : MonoBehaviour
         }
         else if (Item.item.goose)
         {
+
+            item = "g";
             checkDamaged = true;
             Invoke("GooseFinish", 5f);
             
