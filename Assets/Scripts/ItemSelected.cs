@@ -12,10 +12,12 @@ public class ItemSelected : MonoBehaviour
     {
         if (IS != null)
         {
-            Destroy(gameObject);
-            return;
+            print("Break");
+            //Destroy(gameObject);
+
         }
         IS = this;
+        print("Good");
         DontDestroyOnLoad(gameObject);
     }
     // Start is called before the first frame update
@@ -25,34 +27,26 @@ public class ItemSelected : MonoBehaviour
     }
     public void BeansCheck()
     {
-        if (!Item.item.beans)
-        {
-            Item.item.beans = true;
-            Item.item.airballon = false;
-            Item.item.goose = false;
-            print(Item.item.beans);
-        }
+
+        Item.item.beans = true;
+        Item.item.airballon = false;
+        Item.item.goose = false;
+        print(Item.item.beans);
     }
     public void AirballonCheck()
     {
-        if (!Item.item.airballon)
-        {
-            Item.item.beans = false;
-            Item.item.airballon = true;
-            Item.item.goose = false;
-            print(Item.item.airballon);
-        }
+        Item.item.beans = false;
+        Item.item.airballon = true;
+        Item.item.goose = false;
+        print(Item.item.airballon);
     }
 
     public void GooseCheck()
     {
-        if (!Item.item.goose)
-        {
-            Item.item.beans = false;
-            Item.item.airballon = false;
-            Item.item.goose = true;
-            print(Item.item.goose);
-        }
+        Item.item.beans = false;
+        Item.item.airballon = false;
+        Item.item.goose = true;
+        print(Item.item.goose);
     }
     // Update is called once per frame
     void Update()
@@ -69,14 +63,7 @@ public class ItemSelected : MonoBehaviour
     }
     void GooseFinish()
     {
-
-
-
         checkDamaged = false;
-        Item.item.goose = false;
-        
-
-
     }
     public void UseItem()
     {
@@ -102,15 +89,10 @@ public class ItemSelected : MonoBehaviour
         }
         else if (Item.item.goose)
         {
-
             item = "g";
             checkDamaged = true;
+            Item.item.goose = false;
             Invoke("GooseFinish", 5f);
-            
-            
-            
-
-
         }
     }
 }
