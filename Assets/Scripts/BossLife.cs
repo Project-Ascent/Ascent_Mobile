@@ -12,6 +12,7 @@ public class boss_life : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -42,6 +43,11 @@ public class boss_life : MonoBehaviour
             life3.enabled = false;
             life2.enabled = false;
             life1.enabled = false;
+            Item.item.beans = true;
+            Item.item.airballon = true;
+            Item.item.goose = true;
+            Item.item.harp = true;
+
             SceneManager.LoadScene("WinScene");
         }
 
