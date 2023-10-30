@@ -13,7 +13,6 @@ public class LeverActivate : MonoBehaviour
     public float speed;
 
     private Vector3 dir;
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -24,6 +23,7 @@ public class LeverActivate : MonoBehaviour
         TargetP.transform.position = new Vector3(-6.71f, -3.29f, 0);
         TargetB.GetComponent<Animator>().Play("boss_stand");
         TargetB.transform.position = new Vector3(6.53f, -0.5f, 0);
+        TargetB.transform.localScale = new Vector3(-0.8f, 0.8f, 0.8f);
 
         Invoke("afterFalling", fallDelay);
     }
@@ -35,14 +35,15 @@ public class LeverActivate : MonoBehaviour
         clone.transform.position = new Vector3(TargetB.transform.position.x,
                                                TargetB.transform.position.y + 10,
                                                0);
-        Destroy(clone, 10);
+        Destroy(clone, 1);
 
         Invoke("afterDamage", bossDelay);
     }
 
     void afterDamage()
     {
-        TargetB.GetComponent<Animator>().Play("boss_damage");
+        TargetB.GetComponent<BossMove>().bossHit = true;
+        TargetB.GetComponent<Animator>().Play("boss_damaged");
         TargetB.GetComponent<boss_life>().amount -= 1;
     }
 }
