@@ -8,7 +8,7 @@ public class Item : MonoBehaviour
     public bool beans=false;
     public bool airballon=false;
     public bool goose=false;
-    public bool harp=false;
+    
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class Item : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        beans = true;
+        
     }
 
     // Update is called once per frame

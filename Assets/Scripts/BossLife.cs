@@ -12,6 +12,7 @@ public class boss_life : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -43,6 +44,11 @@ public class boss_life : MonoBehaviour
             life2.enabled = false;
             life1.enabled = false;
             Invoke("MoveWinScene", 5);
+=======
+            
+
+            SceneManager.LoadScene("WinScene");
+>>>>>>> master
         }
 
     }

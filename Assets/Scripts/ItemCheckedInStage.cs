@@ -6,6 +6,8 @@ public class ItemCheckedInStage : MonoBehaviour
 {
     public Sprite inven;
     public Sprite beans;
+    public Sprite airballon;
+    public Sprite goose;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,22 @@ public class ItemCheckedInStage : MonoBehaviour
             img.sprite = beans;
 
 
-        }else
+        }
+        else if (Item.item.airballon)
+        {
+            Image img = GetComponent<Image>();
+            img.sprite = airballon;
+
+
+        }
+        else if (Item.item.goose)
+        {
+            Image img = GetComponent<Image>();
+            img.sprite = goose;
+
+
+        }
+        else
         {
             Image img = GetComponent<Image>();
             img.sprite = inven;
