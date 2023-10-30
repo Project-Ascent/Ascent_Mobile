@@ -8,6 +8,8 @@ public class BossMove : MonoBehaviour
     private Animator animator;
     private Vector3 dir;
     System.Random rand;
+    
+    public bool bossHit = false;
 
     public GameObject Target;
     private float targetY;
@@ -86,6 +88,21 @@ public class BossMove : MonoBehaviour
 
     private void Update()
     {
+        if(bossHit)
+        {
+            if(GetComponent<boss_life>().amount == 0)
+            {
+                CancelInvoke("bossAct");
+                Invoke("dieTiming", 0.5f);
+            }
+            else
+            {
+                CancelInvoke("bossAct");
+                Invoke("hitTiming", 0.5f);
+                InvokeRepeating("bossAct", waitingTime + 5, repeatTime);
+            }
+            bossHit = false;
+        }
         if (transform.position.x < -8.5 && dx < 0)
         {
             dx = 0;
@@ -141,5 +158,15 @@ public class BossMove : MonoBehaviour
     {
         dy = 0; dx = dir.x * 10;
         Invoke("stopTiming", 2);
+    }
+    void hitTiming()
+    {
+        dy = 0; dx = 0;
+        //animator.Play("boss_damaged");
+    }
+    void dieTiming()
+    {
+        dy = 0; dx = 0;
+        animator.Play("boss_die");
     }
 }

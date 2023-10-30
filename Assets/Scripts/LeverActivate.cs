@@ -35,14 +35,15 @@ public class LeverActivate : MonoBehaviour
         clone.transform.position = new Vector3(TargetB.transform.position.x,
                                                TargetB.transform.position.y + 10,
                                                0);
-        Destroy(clone, 10);
+        Destroy(clone, 1);
 
         Invoke("afterDamage", bossDelay);
     }
 
     void afterDamage()
     {
-        TargetB.GetComponent<Animator>().Play("boss_damage");
+        TargetB.GetComponent<BossMove>().bossHit = true;
+        TargetB.GetComponent<Animator>().Play("boss_damaged");
         TargetB.GetComponent<boss_life>().amount -= 1;
     }
 }
