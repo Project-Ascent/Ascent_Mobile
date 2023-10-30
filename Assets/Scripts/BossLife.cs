@@ -43,13 +43,8 @@ public class boss_life : MonoBehaviour
             life3.enabled = false;
             life2.enabled = false;
             life1.enabled = false;
-<<<<<<< HEAD
-            Invoke("MoveWinScene", 5);
-=======
-            
 
-            SceneManager.LoadScene("WinScene");
->>>>>>> master
+            Invoke("MoveWinScene", 3);
         }
 
     }

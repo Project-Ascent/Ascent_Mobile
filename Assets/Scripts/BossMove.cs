@@ -99,7 +99,7 @@ public class BossMove : MonoBehaviour
             {
                 CancelInvoke("bossAct");
                 Invoke("hitTiming", 0.5f);
-                InvokeRepeating("bossAct", waitingTime + 5, repeatTime);
+                InvokeRepeating("bossAct", waitingTime, repeatTime);
             }
             bossHit = false;
         }
