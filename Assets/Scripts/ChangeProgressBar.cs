@@ -18,7 +18,7 @@ public class ChangeProgressBar : MonoBehaviour
         float player = GameObject.Find("Player").transform.position.y;
         if (player >= 0)
         {
-            float ratio = player / 100;
+            float ratio = player / 70; // 나누는 수는 맵 길이에 맞추면 된다
             img.fillAmount = ratio;
         }
         
