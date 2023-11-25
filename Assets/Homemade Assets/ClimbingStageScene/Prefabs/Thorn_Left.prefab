@@ -177,9 +177,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5629073944774724037}
+  - component: {fileID: 8121328748284898502}
+  - component: {fileID: 8440541910390385962}
   m_Layer: 0
-  m_Name: thorn
-  m_TagString: Untagged
+  m_Name: Thorn_Left
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,10 +196,97 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.42, y: 3.73, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8918807633337613461}
   - {fileID: 8258856429869228942}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &8121328748284898502
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8928521249718943484}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0.2
+  m_Points:
+  - {x: -0.71570253, y: 1.0444565}
+  - {x: -0.29930067, y: 0.7396629}
+  - {x: -0.8886657, y: 0.051314354}
+  - {x: -0.1181016, y: 0.6115947}
+  - {x: 0.25102615, y: 0.43807936}
+  - {x: 0.21900606, y: 0.11112857}
+  - {x: 0.70406485, y: 0.28432012}
+  - {x: 1.1532192, y: 0.26603723}
+  - {x: 0.90570974, y: -0.12760806}
+  - {x: 1.4980965, y: 0.22521353}
+  - {x: 2.0522275, y: 0.23702621}
+  - {x: 1.6989751, y: -0.062259197}
+  - {x: 1.8875632, y: -0.06646466}
+  - {x: 2.3957224, y: 0.21223927}
+  - {x: 2.8225532, y: 0.19841981}
+  - {x: 3.026287, y: -0.1375966}
+  - {x: 3.3351111, y: -0.1743424}
+  - {x: 3.7212505, y: 0.036747694}
+  - {x: 4.2412553, y: 0.02980578}
+  - {x: 4.506501, y: -0.48316956}
+  - {x: 4.630922, y: -0.52330136}
+  - {x: 4.615665, y: 0.08737898}
+  - {x: 4.609037, y: 0.7379819}
+  - {x: 3.3068564, y: 0.6326003}
+  - {x: 2.7080965, y: 0.54534864}
+  - {x: 2.5586314, y: 0.8351017}
+  - {x: 2.1733024, y: 0.76288176}
+  - {x: 1.8338604, y: 0.49547565}
+  - {x: 0.9855535, y: 0.44459772}
+  - {x: 0.7819247, y: 0.96295905}
+  - {x: 0.12515768, y: 1.2644024}
+  - {x: 2.0312493, y: 0.8099849}
+  - {x: 1.1125741, y: 1.2879461}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!114 &8440541910390385962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8928521249718943484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0117294ddf218fa4d9c1885895dfee05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  isDamaged: 0
+  life: {fileID: 0}
