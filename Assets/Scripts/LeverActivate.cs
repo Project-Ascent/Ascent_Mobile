@@ -12,6 +12,8 @@ public class LeverActivate : MonoBehaviour
     public GameObject TargetB;
     public float speed;
 
+    private bool lever_activate = false;
+
     private Vector3 dir;
     void Start()
     {
@@ -19,7 +21,14 @@ public class LeverActivate : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (lever_activate) return;
+
+        lever_activate = true;
         animator.Play("lever_on");
+        Invoke("MovePlayer", 1.5f);
+    }
+    void MovePlayer()
+    {
         TargetP.transform.position = new Vector3(-6.71f, -3.29f, 0);
         TargetB.GetComponent<Animator>().Play("boss_stand");
         TargetB.transform.position = new Vector3(6.53f, -0.5f, 0);
@@ -27,6 +36,7 @@ public class LeverActivate : MonoBehaviour
 
         Invoke("afterFalling", fallDelay);
     }
+
     void afterFalling()
     {
         animator.Play("lever_idle");
@@ -35,7 +45,7 @@ public class LeverActivate : MonoBehaviour
         clone.transform.position = new Vector3(TargetB.transform.position.x,
                                                TargetB.transform.position.y + 10,
                                                0);
-        Destroy(clone, 1);
+        Destroy(clone, 0.7f);
 
         Invoke("afterDamage", bossDelay);
     }
