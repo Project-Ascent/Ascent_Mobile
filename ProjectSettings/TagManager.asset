@@ -8,6 +8,8 @@ TagManager:
   - Life
   - FinishObject
   - Boss
+  - Managers
+  - PlayerHook
   layers:
   - Default
   - TransparentFX
