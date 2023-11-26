@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ClimbingLevel1.unity
     guid: 7c3a650b382c1b344838c11dddf22388
   - enabled: 1
+    path: Assets/Scenes/ClimbingLevel1_Mobile.unity
+    guid: 43fd498d85da87c4da59ea276d122a2a
+  - enabled: 1
     path: Assets/Scenes/GameOverScene1.unity
     guid: 28916fa2fd87d9d48aca0df1cd62dd9c
   - enabled: 1
