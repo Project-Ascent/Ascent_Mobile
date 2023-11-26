@@ -15,6 +15,9 @@ public class PlayerMove : MonoBehaviour
     private bool isIdleNow = false;
     private Animator animator;
 
+    public bool wallcollision;
+    public bool doorOpening = false;
+
     GrapplingHook grappling;
 
     private void Start()
@@ -28,7 +31,15 @@ public class PlayerMove : MonoBehaviour
     {
         float x = Input.GetAxisRaw("Horizontal") * moveX;
 
-        moveDelta = new Vector3(x, 0, 0);
+        if(wallcollision && x < 0)
+        {
+            moveDelta = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            moveDelta = new Vector3(x, 0, 0);
+            wallcollision = false;
+        }
 
         if (isWalkFirst && x != 0 && !grappling.isAttach)
         {
