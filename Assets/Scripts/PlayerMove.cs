@@ -18,6 +18,9 @@ public class PlayerMove : MonoBehaviour
     public bool wallcollision;
     public bool doorOpening = false;
 
+    public bool inputLeft = false;
+    public bool inputRight = false;
+
     GrapplingHook grappling;
 
     private void Start()
@@ -25,6 +28,9 @@ public class PlayerMove : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         grappling = GetComponent<GrapplingHook>();
+
+        UIButtonManager ui = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIButtonManager>();
+        ui.init();
     }
 
     private void FixedUpdate()
@@ -77,10 +83,30 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        curY = transform.position.y;
-        if (curY > 100)
+        if (!inputLeft && !inputRight)
         {
-            SceneManager.LoadScene("BossStageScene");
+            animator.Play("idle");
+        }
+        else if (inputLeft)
+        {
+            animator.Play("move");
+            transform.localScale = new Vector3(-2.5f, 2.5f, 1);
+            if(wallcollision)
+            {
+                moveDelta = new Vector3(0, 0, 0);
+            }
+            else
+            {
+                moveDelta = new Vector3(moveX, 0, 0);
+            }
+            transform.Translate(-moveDelta * Time.deltaTime * 2);
+        }
+        else if (inputRight)
+        {
+            animator.Play("move");
+            transform.localScale = new Vector3(2.5f, 2.5f, 1);
+            moveDelta = new Vector3(moveX, 0, 0);
+            transform.Translate(moveDelta * Time.deltaTime * 2);
         }
     }
 }
