@@ -11,27 +11,31 @@ public class ThornDetect : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.name=="Player"&&!ItemSelected.IS.checkDamaged)
+        if(other.name=="Player")
         {
             life = other.gameObject.GetComponent<Life>();
 
-            if (life != null)
+            if (life != null && !life.isDamaged)
             {
-                isDamaged = true;
-                
-                Invoke("ChangeDamged", 0.2f);
-                
-                
+
+                Invoke("ChangeDamaged", 0.1f);
+                Invoke("ResetDamageState", 3f);
             }
         }
        
     }
 
-    void ChangeDamged()
+    void ChangeDamaged()
     {
-        if (isDamaged)
+        if (!life.isDamaged)
+        {
             life.amount -= damage;
-        isDamaged = false;
+            life.isDamaged = true;
+        }
+    }
+    void ResetDamageState()
+    {
+        life.isDamaged = false;
     }
     // Start is called before the first frame update
     void Start()
