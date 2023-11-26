@@ -8,8 +8,10 @@ TagManager:
   - Life
   - FinishObject
   - Boss
-  - beans
+  - Managers
+  - PlayerHook
   - airballoon
+  - beans
   - goose
   layers:
   - Default

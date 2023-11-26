@@ -154,7 +154,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.Singong1013.Ascent
+    Android: com.DefaultCompany.Ascent
     Standalone: com.DefaultCompany.Ascent
   buildNumber:
     Standalone: 0
