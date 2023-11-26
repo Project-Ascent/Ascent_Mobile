@@ -190,6 +190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveX: 3
   curY: 0
+  inputLeft: 0
+  inputRight: 0
 --- !u!114 &2147136095268649168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +210,8 @@ MonoBehaviour:
   isHookFired: 0
   isRangeMax: 0
   isAttach: 0
+  hookableAreaWidthPercentage: 0.8
+  hookableAreaHeightPercentage: 0.8
 --- !u!114 &848162874763299399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +259,7 @@ MonoBehaviour:
   life2: {fileID: 0}
   life1: {fileID: 0}
   isPlay: 0
+<<<<<<< HEAD
   currentLevel: 0
 --- !u!114 &3008815267194659439
 MonoBehaviour:
@@ -269,6 +274,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasKey: 0
+=======
+  isDamaged: 0
+  currentLevel: 1
+>>>>>>> master
 --- !u!1001 &8507456096837983279
 PrefabInstance:
   m_ObjectHideFlags: 0
