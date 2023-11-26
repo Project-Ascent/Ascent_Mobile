@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e005c348977484ba3d1a0ae5c6b485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leafPrefab: {fileID: 8234058798200122276, guid: 4420a209fc07d1543a3d128bc7a5350b, type: 3}
+  leafPrefab: {fileID: 8250353529187181130, guid: 27a75d38a24500b499214f7b10e3d760, type: 3}
   spawnPoint: {fileID: 6583519785937454074}
-  currentLeaf: {fileID: 8234058798200122276, guid: 4420a209fc07d1543a3d128bc7a5350b, type: 3}
+  currentLeaf: {fileID: 8250353529187181130, guid: 27a75d38a24500b499214f7b10e3d760, type: 3}
   leafDestroyed: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeftLeafSpawner : MonoBehaviour
+public class LeafSpawner : MonoBehaviour
 {
     public GameObject leafPrefab;
     public Transform spawnPoint;
@@ -27,7 +27,7 @@ public class LeftLeafSpawner : MonoBehaviour
     }
     void SpawnLeaf()
     {
-        Quaternion desiredRotation = Quaternion.Euler(180, 0, 135);
+        Quaternion desiredRotation = Quaternion.Euler(0, 0, 0);
         currentLeaf = Instantiate(leafPrefab, spawnPoint.position, desiredRotation);
         leafDestroyed = false;
     }

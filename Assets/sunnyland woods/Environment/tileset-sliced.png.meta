@@ -791,6 +791,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -5528,7 +5541,7 @@ TextureImporter:
         width: 3
         height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5549,7 +5562,7 @@ TextureImporter:
         width: 96
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5557,6 +5570,69 @@ TextureImporter:
       bones: []
       spriteID: 79779d199ad26714fa1c4f81a095fc0a
       internalID: 1636338491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-sliced_227
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 144
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5c62902bdb02348996d3ba86afde23
+      internalID: -1490749234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-sliced_228
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 208
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08429d4acf309264cbbd2912b4aeb7c1
+      internalID: 901927035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-sliced_229
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 272
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6bffe5047126ef47b061f22a4cc0b99
+      internalID: 135872095
       vertices: []
       indices: 
       edges: []
@@ -5715,6 +5791,9 @@ TextureImporter:
       tileset-sliced_224: -818458930
       tileset-sliced_225: -2101092911
       tileset-sliced_226: 1636338491
+      tileset-sliced_227: -1490749234
+      tileset-sliced_228: 901927035
+      tileset-sliced_229: 135872095
       tileset-sliced_23: 21300046
       tileset-sliced_24: 21300048
       tileset-sliced_25: 21300050

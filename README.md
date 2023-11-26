@@ -1,4 +1,4 @@
-#  Konkuk University 2023-2 GameProgramming Project - Ascent(PC version)
+#  Konkuk University 2023-2 GameProgramming Project - Ascent(Mobile version)
 ------------
 ## Team Magic Beans
  **Computer Science 20 Choi Mingyu**
