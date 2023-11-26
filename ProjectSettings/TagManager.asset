@@ -8,6 +8,9 @@ TagManager:
   - Life
   - FinishObject
   - Boss
+  - beans
+  - airballoon
+  - goose
   layers:
   - Default
   - TransparentFX

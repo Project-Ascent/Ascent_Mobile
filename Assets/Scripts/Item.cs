@@ -5,12 +5,12 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public static Item item;
-    public bool beans=false;
-    public bool airballon=false;
-    public bool goose=false;
+    public bool beans;
+    public bool airballon;
+    public bool goose;
     
 
-    private void Awake()
+   /* private void Awake()
     {
         if (item != null)
         {
@@ -19,11 +19,15 @@ public class Item : MonoBehaviour
         }
         item = this;
         DontDestroyOnLoad(gameObject);
-    }
+    }*/
     // Start is called before the first frame update
     void Start()
     {
-        
+        item = this;
+        item.beans = false;
+        item.airballon = false;
+        item.goose = false;
+
     }
 
     // Update is called once per frame
