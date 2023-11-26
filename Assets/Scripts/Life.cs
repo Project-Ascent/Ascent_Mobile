@@ -10,6 +10,7 @@ public class Life : MonoBehaviour
     public Image life2;
     public Image life1;
     public bool isPlay = false;
+    public bool isDamaged = false;
     public float currentLevel;
 
     // Start is called before the first frame update
