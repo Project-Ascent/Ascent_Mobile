@@ -70,6 +70,7 @@ public class UIButtonManager : MonoBehaviour
 
     public void Exit()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("LobbyScene");
     }
 
