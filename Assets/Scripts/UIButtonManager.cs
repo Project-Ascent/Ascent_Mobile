@@ -72,4 +72,10 @@ public class UIButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene("LobbyScene");
     }
+
+    // Only used in TutorialScene 
+    public void SkipTutorial()
+    {
+        SceneManager.LoadScene("SelectLevelScene");
+    }
 }

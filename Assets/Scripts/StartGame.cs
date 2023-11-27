@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class StartGame : MonoBehaviour
 {
 
-    public void SceneChange()
+    public void GoTutorialScene()
     {
         SceneManager.LoadScene("TutorialScene");
     }

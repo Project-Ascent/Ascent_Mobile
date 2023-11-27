@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CameraMovementTutorial : MonoBehaviour
 {
-    public float cameraSpeed = 5f;
+    public float cameraSpeed = 4.7f;
     public GameObject player;
     // Start is called before the first frame update
     void Start()
@@ -13,16 +13,14 @@ public class CameraMovementTutorial : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Vector3 dir = player.transform.position - this.transform.position;
-        // Vector3 playerPosition = player.transform.position;
 
-        if (-40 < player.transform.position.x && player.transform.position.x < 40)
+        Vector3 dir = player.transform.position - this.transform.position;
+        if (player.transform.position.y < 40)
         {
-            Vector3 moveVector = new Vector3((dir.x), (dir.y + 3.5f), 0.0f);
-            this.transform.Translate(moveVector * cameraSpeed * Time.deltaTime);
+            Vector3 moveVector = new Vector3(0.0f, (dir.y + 3.8f) * cameraSpeed * Time.deltaTime, 0.0f);
+            this.transform.Translate(moveVector);
         }
     }
 }
