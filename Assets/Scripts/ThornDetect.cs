@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class ThornDetect : MonoBehaviour
@@ -13,13 +14,20 @@ public class ThornDetect : MonoBehaviour
     {
         if(other.name=="Player")
         {
+            Scene scene = SceneManager.GetActiveScene();
             life = other.gameObject.GetComponent<Life>();
 
             if (life != null && !life.isDamaged)
             {
-
-                Invoke("ChangeDamaged", 0.1f);
-                Invoke("ResetDamageState", 3f);
+                if (scene.name == "TutorialScene")
+                {
+                    Invoke("ChangeDamaged", 0.1f);
+                }
+                else
+                {
+                    Invoke("ChangeDamaged", 0.1f);
+                    Invoke("ResetDamageState", 3f);
+                }
             }
         }
        
