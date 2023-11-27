@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class UIButtonManager : MonoBehaviour
@@ -8,9 +9,12 @@ public class UIButtonManager : MonoBehaviour
     GameObject hook;
     GrapplingHook gh;
     PlayerMove ps;
+
+    [SerializeField] private GameObject pauseMenuUI;
     // Start is called before the first frame update
     void Start()
     {
+        pauseMenuUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -52,4 +56,20 @@ public class UIButtonManager : MonoBehaviour
         // gh.isHookFired = true;
     }
 
+    public void Pause()
+    {
+        Time.timeScale = 0; 
+        pauseMenuUI.SetActive(true);
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+        pauseMenuUI.SetActive(false);
+    }
+
+    public void Exit()
+    {
+        SceneManager.LoadScene("LobbyScene");
+    }
 }
