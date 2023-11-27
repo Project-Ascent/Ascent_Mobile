@@ -35,54 +35,7 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float x = Input.GetAxisRaw("Horizontal") * moveX;
-
-        if(wallcollision && x < 0)
-        {
-            moveDelta = new Vector3(0, 0, 0);
-        }
-        else
-        {
-            moveDelta = new Vector3(x, 0, 0);
-            wallcollision = false;
-        }
-
-        if (isWalkFirst && x != 0 && !grappling.isAttach)
-        {
-            isWalkFirst = false;
-            isIdleNow = false;
-            animator.Play("move");
-        }
-
-        if (!isIdleNow && x == 0)
-        {
-            isWalkFirst = true;
-            isIdleNow = true;
-            animator.Play("idle");
-        }
-
-        if (grappling.isAttach)
-        {
-            isWalkFirst = true;
-            isIdleNow = true;
-            animator.Play("idle");
-        }
-
-
-
-        if (moveDelta.x > 0)
-        {
-            transform.localScale = new Vector3(2.5f, 2.5f, 1);
-        }    
-        else if (moveDelta.x < 0)
-        {
-            transform.localScale = new Vector3(-2.5f, 2.5f, 1);
-        }
-        transform.Translate(moveDelta * Time.deltaTime * 2);
-    }
-
-    private void Update()
-    {
+        Debug.Log(inputLeft + " -  " + inputRight);
         if (!inputLeft && !inputRight)
         {
             animator.Play("idle");
@@ -91,7 +44,7 @@ public class PlayerMove : MonoBehaviour
         {
             animator.Play("move");
             transform.localScale = new Vector3(-2.5f, 2.5f, 1);
-            if(wallcollision)
+            if (wallcollision)
             {
                 moveDelta = new Vector3(0, 0, 0);
             }
