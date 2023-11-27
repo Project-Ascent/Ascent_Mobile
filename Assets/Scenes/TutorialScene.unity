@@ -1619,7 +1619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5593113276636492272, guid: 2c4e7c169d3c01545a4fc9409d04cb16, type: 3}
       propertyPath: m_TagString
-      value: TM1
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2476,7 +2476,7 @@ GameObject:
   - component: {fileID: 571250156}
   m_Layer: 0
   m_Name: ladder_1
-  m_TagString: FinishObject
+  m_TagString: TM4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4574,19 +4574,41 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5139723253292212263, guid: 7dfe232286835fa409322f245dcc7f9c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6092627952965346289, guid: 7dfe232286835fa409322f245dcc7f9c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 697922920}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5721295519944856190, guid: 7dfe232286835fa409322f245dcc7f9c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1125942205}
   m_SourcePrefab: {fileID: 100100000, guid: 7dfe232286835fa409322f245dcc7f9c, type: 3}
 --- !u!4 &1125942203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6092627952965346289, guid: 7dfe232286835fa409322f245dcc7f9c, type: 3}
   m_PrefabInstance: {fileID: 1125942202}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1125942204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5721295519944856190, guid: 7dfe232286835fa409322f245dcc7f9c, type: 3}
+  m_PrefabInstance: {fileID: 1125942202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1125942205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125942204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 521c2e34b2d2415409f9aa25176a2f8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joint2D: {fileID: 0}
 --- !u!1 &1131369544
 GameObject:
   m_ObjectHideFlags: 0
@@ -7078,6 +7100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce15d226923c5d447857bcb8c0eea15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missionCount: 0
   goodJobText: {fileID: 1458171132}
 --- !u!114 &1494281999
 MonoBehaviour:
@@ -7368,6 +7391,10 @@ PrefabInstance:
     - target: {fileID: 3350673536608434073, guid: f17f21325addd2144a8cbe65626e62d9, type: 3}
       propertyPath: m_Name
       value: Bird_UpDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350673536608434073, guid: f17f21325addd2144a8cbe65626e62d9, type: 3}
+      propertyPath: m_TagString
+      value: TM2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

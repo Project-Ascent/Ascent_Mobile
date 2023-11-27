@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
-    float missionCount = 0.0f;
+    public float missionCount = 0.0f;
     [SerializeField] private GameObject goodJobText;
     // Start is called before the first frame update
     void Start()
@@ -20,17 +20,12 @@ public class TutorialManager : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Obstacles"))
-        {
-            Debug.Log("장애물");
-        }
-
-        if (collision.CompareTag("FinishObject"))
-        {
-            Debug.Log("사다리");
-        }
     }
 
+    public void checkMissionCount()
+    {
+
+    }
     void ClearMisson1()
     {
         if (missionCount == 1.0f)
