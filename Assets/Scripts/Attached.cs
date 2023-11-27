@@ -16,7 +16,6 @@ public class Attached : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //효과음 넣기
         if (collision.CompareTag("Obstacles"))
         {
             joint2D.enabled = true;
