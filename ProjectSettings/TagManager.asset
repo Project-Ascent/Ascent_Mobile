@@ -13,6 +13,7 @@ TagManager:
   - airballoon
   - beans
   - goose
+  - TM1
   layers:
   - Default
   - TransparentFX

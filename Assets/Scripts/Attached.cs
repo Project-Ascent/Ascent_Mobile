@@ -30,6 +30,25 @@ public class Attached : MonoBehaviour
             grappling.isAttach = true;
             Invoke("goToBossStage", 0.1f);
         }
+
+        if (collision.CompareTag("TM1"))
+        {
+            joint2D.enabled = true;
+            grappling.isRangeMax = true;
+            grappling.isAttach = true;
+        }
+
+        if (collision.CompareTag("TM2"))
+        {
+            joint2D.enabled = true;
+            grappling.isRangeMax = true;
+            grappling.isAttach = true;
+        }
+
+        if (collision.CompareTag("TM4"))
+        {
+
+        }
     }
     // Update is called once per frame
     void Update()
