@@ -27,8 +27,6 @@ public class UIButtonManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         ps = player.GetComponent<PlayerMove>();
-        hook = GameObject.FindGameObjectWithTag("PlayerHook");
-        gh = hook.GetComponent<GrapplingHook>();
     }
 
     public void LeftUp()
@@ -72,11 +70,13 @@ public class UIButtonManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("LobbyScene");
+        Destroy(this);
     }
 
     // Only used in TutorialScene 
     public void SkipTutorial()
     {
         SceneManager.LoadScene("SelectLevelScene");
+        Destroy(this);
     }
 }

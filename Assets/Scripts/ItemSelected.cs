@@ -12,13 +12,8 @@ public class ItemSelected : MonoBehaviour
     {
         if (IS != null)
         {
-            print("Break");
-            //Destroy(gameObject);
-
         }
         IS = this;
-        print("Good");
-        DontDestroyOnLoad(gameObject);
     }
     // Start is called before the first frame update
     void Start()
