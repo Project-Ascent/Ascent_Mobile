@@ -15,11 +15,13 @@ public class PlayerMove : MonoBehaviour
     private bool isIdleNow = false;
     private Animator animator;
 
-    GrapplingHook grappling;
-
+    public bool wallcollision;
+    public bool doorOpening = false;
 
     public bool inputLeft = false;
     public bool inputRight = false;
+
+    GrapplingHook grappling;
 
     private void Start()
     {
@@ -35,8 +37,16 @@ public class PlayerMove : MonoBehaviour
     {
         float x = Input.GetAxisRaw("Horizontal") * moveX;
 
-        moveDelta = new Vector3(x, 0, 0);
-        // Debug.Log(moveDelta);
+        if(wallcollision && x < 0)
+        {
+            moveDelta = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            moveDelta = new Vector3(x, 0, 0);
+            wallcollision = false;
+        }
+
         if (isWalkFirst && x != 0 && !grappling.isAttach)
         {
             isWalkFirst = false;
@@ -59,10 +69,11 @@ public class PlayerMove : MonoBehaviour
         }
 
 
+
         if (moveDelta.x > 0)
         {
             transform.localScale = new Vector3(2.5f, 2.5f, 1);
-        }
+        }    
         else if (moveDelta.x < 0)
         {
             transform.localScale = new Vector3(-2.5f, 2.5f, 1);
@@ -80,7 +91,14 @@ public class PlayerMove : MonoBehaviour
         {
             animator.Play("move");
             transform.localScale = new Vector3(-2.5f, 2.5f, 1);
-            moveDelta = new Vector3(moveX, 0, 0);
+            if(wallcollision)
+            {
+                moveDelta = new Vector3(0, 0, 0);
+            }
+            else
+            {
+                moveDelta = new Vector3(moveX, 0, 0);
+            }
             transform.Translate(-moveDelta * Time.deltaTime * 2);
         }
         else if (inputRight)
