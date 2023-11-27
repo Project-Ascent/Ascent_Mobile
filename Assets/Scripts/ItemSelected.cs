@@ -27,35 +27,35 @@ public class ItemSelected : MonoBehaviour
     }
     public void BeansCheck()
     {
-
-        Item.item.beans = true;
-        Item.item.airballon = false;
-        Item.item.goose = false;
-        print(Item.item.beans);
+        ItemM.item.beans = true;
+        ItemM.item.airballoon = false;
+        ItemM.item.goose = false;
+        print(ItemM.item.beans);
     }
-    public void AirballonCheck()
+    public void AirballoonCheck()
     {
-        Item.item.beans = false;
-        Item.item.airballon = true;
-        Item.item.goose = false;
-        print(Item.item.airballon);
+        ItemM.item.beans = false;
+        ItemM.item.airballoon = true;
+        ItemM.item.goose = false;
+        print(ItemM.item.airballoon);
     }
 
     public void GooseCheck()
     {
-        Item.item.beans = false;
-        Item.item.airballon = false;
-        Item.item.goose = true;
-        print(Item.item.goose);
+        ItemM.item.beans = false;
+        ItemM.item.airballoon = false;
+        ItemM.item.goose = true;
+        print(ItemM.item.goose);
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Z))
-        {
-            UseItem();
-        }
+        //if (Input.GetKey(KeyCode.Z))
+        //{
+        //    UseItem();
+        //}
     }
+
     void FastFalling()
     {
         Rigidbody2D rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
@@ -67,31 +67,32 @@ public class ItemSelected : MonoBehaviour
     }
     public void UseItem()
     {
-        if (Item.item.beans)
+        Debug.Log("UseItem");
+        if (ItemM.item.beans)
         {
-
+            Debug.Log("Äá »ç¿ë");
             item = "b";
             Life life = GameObject.Find("Player").GetComponent<Life>();
             if (life.amount < 3)
             {
-                Item.item.beans = false;
+                ItemM.item.beans = false;
                 life.amount++;
             }
         }
-        else if (Item.item.airballon)
+        else if (ItemM.item.airballoon)
         {
             item = "a";
             Rigidbody2D rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
             rb.drag = 20;
-            Item.item.airballon = false;
+            ItemM.item.airballoon = false;
             Invoke("FastFalling", 2f);
 
         }
-        else if (Item.item.goose)
+        else if (ItemM.item.goose)
         {
             item = "g";
             checkDamaged = true;
-            Item.item.goose = false;
+            ItemM.item.goose = false;
             Invoke("GooseFinish", 5f);
         }
     }

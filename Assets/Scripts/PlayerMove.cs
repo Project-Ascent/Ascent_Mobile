@@ -35,7 +35,7 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(inputLeft + " -  " + inputRight);
+        // Debug.Log(inputLeft + " -  " + inputRight);
         if (!inputLeft && !inputRight)
         {
             animator.Play("idle");
