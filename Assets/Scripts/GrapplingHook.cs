@@ -14,11 +14,10 @@ public class GrapplingHook : MonoBehaviour
     public bool isHookFired;
     public bool isRangeMax;
     public bool isAttach;
+    public int isTutorial; // 1 : Tutorial, 0 : Not
 
     public float hookableAreaWidthPercentage = 0.8f;
     public float hookableAreaHeightPercentage = 0.8f;
-    private float hookableAreaWidth;
-    private float hookableAreaHeight;
 
     private bool isMoveButtonPressed; // 수정된 변수
 
@@ -135,12 +134,20 @@ public class GrapplingHook : MonoBehaviour
         }
     }
 
-    void ResetHookState()
+    public void ResetHookState()
     {
         isHookFired = false;
         isRangeMax = false;
         isAttach = false;
-        hook.GetComponent<Attached>().joint2D.enabled = false;
-        hook.gameObject.SetActive(false);
+        if (isTutorial == 1)
+        {
+            hook.GetComponent<Attached_Tutorial>().joint2D.enabled = false;
+            hook.gameObject.SetActive(false);
+        }
+        else
+        {
+            hook.GetComponent<Attached>().joint2D.enabled = false;
+            hook.gameObject.SetActive(false);
+        }
     }
 }

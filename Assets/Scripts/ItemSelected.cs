@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ItemSelected : MonoBehaviour
 {
@@ -45,10 +46,7 @@ public class ItemSelected : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKey(KeyCode.Z))
-        //{
-        //    UseItem();
-        //}
+        
     }
 
     void FastFalling()
@@ -62,16 +60,22 @@ public class ItemSelected : MonoBehaviour
     }
     public void UseItem()
     {
-        Debug.Log("UseItem");
         if (ItemM.item.beans)
         {
-            Debug.Log("Äá »ç¿ë");
             item = "b";
             Life life = GameObject.Find("Player").GetComponent<Life>();
             if (life.amount < 3)
             {
                 ItemM.item.beans = false;
                 life.amount++;
+
+                if (SceneManager.GetActiveScene().name == "TutorialScene")
+                {
+                    TutorialManager tm;
+                    tm = tm = GameObject.Find("TutorialManager").GetComponent<TutorialManager>();
+                    tm.missionCount += 1.0f;
+                    tm.checkMissionCount();
+                }
             }
         }
         else if (ItemM.item.airballoon)

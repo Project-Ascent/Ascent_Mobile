@@ -5,6 +5,7 @@ using UnityEngine;
 public class LeafDestroyAndSpawn : MonoBehaviour
 {
     public bool isTouched = false;
+    public int isTutorial; // 1: Tutorial, 0 : Not
     Vector2 leafPosition;
     Vector2 hookPosition;
 
@@ -31,7 +32,14 @@ public class LeafDestroyAndSpawn : MonoBehaviour
         float distance = Vector2.Distance(hookPosition, grappling.hook.position);
         if (distance == distanceThreshold)
         {
-            grappling.hook.GetComponent<Attached>().joint2D.enabled = false;
+            if (isTutorial == 1)
+            {
+                grappling.hook.GetComponent<Attached_Tutorial>().joint2D.enabled = false;
+            }
+            else
+            {
+                grappling.hook.GetComponent<Attached>().joint2D.enabled = false;
+            }
             grappling.isRangeMax = true;
             grappling.isAttach = false;
         }
