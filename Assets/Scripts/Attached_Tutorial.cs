@@ -39,44 +39,57 @@ public class Attached_Tutorial : MonoBehaviour
             Invoke("goToBossStage", 0.1f);
         }
 
-        if (collision.CompareTag("TM1") && !isTM1Hooked)
+        if (collision.CompareTag("TM1"))
         {
             joint2D.enabled = true;
             grappling.isRangeMax = true;
             grappling.isAttach = true;
-            tm.missionCount += 0.5f;
-            isTM1Hooked = true;
-            tm.checkMissionCount();
+            if (!isTM1Hooked)
+            {
+                tm.missionCount += 0.5f;
+                isTM1Hooked = true;
+                tm.checkMissionCount();
+            }
         }
 
-        if (collision.CompareTag("TM3") && !isTM3Hooked)
+        if (collision.CompareTag("TM3"))
         {
             joint2D.enabled = true;
             grappling.isRangeMax = true;
             grappling.isAttach = true;
-            tm.missionCount += 0.5f;
-            isTM3Hooked = true;
-            tm.checkMissionCount();
+            if (!isTM3Hooked)
+            {
+                tm.missionCount += 0.5f;
+                isTM3Hooked = true;
+                tm.checkMissionCount();
+            }
         }
 
-        if (collision.CompareTag("TM2") && !isTM2Hooked)
+        if (collision.CompareTag("TM2"))
         {
             joint2D.enabled = true;
             grappling.isRangeMax = true;
             grappling.isAttach = true;
-            tm.missionCount += 1f;
-            isTM2Hooked = true;
-            tm.checkMissionCount();
+            if (!isTM2Hooked)
+            {
+                tm.missionCount += 1f;
+                isTM2Hooked = true;
+                tm.checkMissionCount();
+            }
         }
 
-        if (collision.CompareTag("TM4") && !isTM4Hooked)
+        if (collision.CompareTag("TM4"))
         {
             joint2D.enabled = true;
             grappling.isRangeMax = true;
             grappling.isAttach = true;
-            tm.missionCount += 1f;
-            isTM4Hooked = true;
-            tm.checkMissionCount();
+            if (!isTM4Hooked)
+            {
+                tm.missionCount += 1f;
+                isTM4Hooked = true;
+                tm.checkMissionCount();
+                grappling.ResetHookState();
+            }
         }
     }
     // Update is called once per frame

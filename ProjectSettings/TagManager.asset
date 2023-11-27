@@ -17,6 +17,10 @@ TagManager:
   - TM2
   - TM4
   - TM3
+  - TM1Text
+  - TM2Text
+  - TM3Text
+  - TM4Text
   layers:
   - Default
   - TransparentFX
