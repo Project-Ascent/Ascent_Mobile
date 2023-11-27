@@ -2538,8 +2538,9 @@ GameObject:
   m_Component:
   - component: {fileID: 788488442}
   - component: {fileID: 788488440}
+  - component: {fileID: 788488443}
   m_Layer: 0
-  m_Name: CanvasManager
+  m_Name: BossStageManager
   m_TagString: Managers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2573,6 +2574,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &788488443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788488439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3793fb5fbd9d7444baed8b5d31fd53aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: {fileID: 0}
+  checkDamaged: 0
+  item: ' '
 --- !u!1 &840371902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,7 +2789,7 @@ GameObject:
   - component: {fileID: 902522843}
   - component: {fileID: 902522846}
   - component: {fileID: 902522845}
-  - component: {fileID: 902522844}
+  - component: {fileID: 902522847}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -2800,22 +2816,6 @@ RectTransform:
   m_AnchoredPosition: {x: 820, y: -350}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &902522844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 902522842}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed9aab10ad6a0704ca0b069d7fcc9e08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inven: {fileID: 21300054, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
-  beans: {fileID: 21300000, guid: ddfe9a3169965c1469d3ae85420527bd, type: 3}
-  airballon: {fileID: 21300000, guid: 1b1561c1b8b9c3045893f66c86e138e1, type: 3}
-  goose: {fileID: 21300000, guid: 2a1a3eabb888feb4494a1dab9ff47645, type: 3}
 --- !u!114 &902522845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2854,6 +2854,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902522842}
   m_CullTransparentMesh: 1
+--- !u!114 &902522847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902522842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa703c9c4148644eb6737d39cd2063e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inven: {fileID: 21300054, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  beans: {fileID: 21300000, guid: 05694d9710ef0304a8d855c81a7abdee, type: 3}
+  airballon: {fileID: 21300000, guid: 1b1561c1b8b9c3045893f66c86e138e1, type: 3}
+  goose: {fileID: 21300000, guid: 2a1a3eabb888feb4494a1dab9ff47645, type: 3}
 --- !u!1001 &927934262
 PrefabInstance:
   m_ObjectHideFlags: 0

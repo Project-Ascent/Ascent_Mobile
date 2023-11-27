@@ -7779,7 +7779,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 1
   - eventID: 3
     callback:
       m_PersistentCalls:
@@ -7795,7 +7795,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 1
 --- !u!1 &1507490743
 GameObject:
   m_ObjectHideFlags: 0
@@ -9579,7 +9579,7 @@ GameObject:
   - component: {fileID: 1870416406}
   - component: {fileID: 1870416407}
   m_Layer: 0
-  m_Name: CanvasManager
+  m_Name: ClimbingLevel1Manager
   m_TagString: Managers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11065,7 +11065,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 1
   - eventID: 3
     callback:
       m_PersistentCalls:
@@ -11081,7 +11081,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 1
 --- !u!1001 &2114546474
 PrefabInstance:
   m_ObjectHideFlags: 0

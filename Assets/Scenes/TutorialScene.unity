@@ -6332,7 +6332,7 @@ GameObject:
   - component: {fileID: 1494281998}
   - component: {fileID: 1494281999}
   m_Layer: 0
-  m_Name: CanvasManager
+  m_Name: TutorialManager
   m_TagString: Managers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
