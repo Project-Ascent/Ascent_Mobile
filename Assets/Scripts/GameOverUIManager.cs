@@ -3,39 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeLevel : MonoBehaviour
+public class GameOverUIManager : MonoBehaviour
 {
 
     public int level;
 
-    public void SceneChange()
+    public void RetryStage()
     {
-        if (ItemSelected.IS.item == "b")
-            Item.item.beans = true;
-        else if (ItemSelected.IS.item == "a")
-            Item.item.airballon = true;
-        else if (ItemSelected.IS.item == "g")
-            Item.item.goose = true;
         if (level == 1)
         {
             
-            SceneManager.LoadScene("ClimbingLevel1");
+            SceneManager.LoadScene("ClimbingLevel1_Mobile");
         }
 
         if (level == 2)
         {
            
-            SceneManager.LoadScene("ClimbingLevel2");
-        }
-        if (level == 3)
-        {
-            SceneManager.LoadScene("ClimbingLevel3");
+            SceneManager.LoadScene("ClimbingLevel2_Mobile");
         }
         if (level == 4)
         {
           
             SceneManager.LoadScene("BossStageScene");
         }
+    }
+
+    public void GoToLobby()
+    {
+        SceneManager.LoadScene("LobbyScene");
     }
 
     // Start is called before the first frame update

@@ -3,13 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SelectLevel : MonoBehaviour
+public class SelectLevelUIManager : MonoBehaviour
 {
-
-    public void SceneChange()
-    {
-        SceneManager.LoadScene("SelectLevelScene");
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +15,14 @@ public class SelectLevel : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Level1()
+    {
+        SceneManager.LoadScene("ClimbingLevel1_Mobile");
+    }
+    public void Level2()
+    {
+        SceneManager.LoadScene("ClimbingLevel2_Mobile");
     }
 }
