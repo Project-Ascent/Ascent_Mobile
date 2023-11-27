@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5421920696785666394}
   - component: {fileID: 760602440503031490}
   - component: {fileID: 6716525828557198757}
+  - component: {fileID: 4108269679973851615}
   - component: {fileID: 5677107760955263343}
   m_Layer: 7
   m_Name: falling_rock
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: c7b11303e9457754985d319ee910dc42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,6 +102,19 @@ MonoBehaviour:
   damage: 1
   isDamaged: 0
   life: {fileID: 0}
+--- !u!114 &4108269679973851615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060185783828708243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190ca66137000da479b1954d089ba19d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!58 &5677107760955263343
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -133,6 +147,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.86197925, y: -0.000014884679}
+  m_Offset: {x: 0.3685149, y: -0.000014884679}
   serializedVersion: 2
-  m_Radius: 7.370365
+  m_Radius: 6.3834734

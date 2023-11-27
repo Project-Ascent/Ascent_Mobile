@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b14f9130a4f0b104b997ebaff72d3201
+guid: c0c763caf0f54fb498c5b379cd6a86a5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,16 +63,16 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -85,7 +85,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,20 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,19 +113,19 @@ TextureImporter:
       name: wood_env_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 41
-        width: 96
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 93
+        y: 1
+        width: 24
+        height: 40
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b059acf815433264ebf33c688f46fd0c
-      internalID: 1212444384
+      spriteID: 6aa1febb41241444e97c1fcb440243f1
+      internalID: 29156344
       vertices: []
       indices: 
       edges: []
@@ -147,19 +134,19 @@ TextureImporter:
       name: wood_env_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 41
-        width: 25
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 49
+        y: 1
+        width: 16
+        height: 40
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d15939b3dd7de04f81cf70966e1e0d4
-      internalID: 170982073
+      spriteID: 7ad7bdef4cbfbec42b510d8c9d80eacb
+      internalID: 1897729364
       vertices: []
       indices: 
       edges: []
@@ -168,19 +155,19 @@ TextureImporter:
       name: wood_env_2
       rect:
         serializedVersion: 2
-        x: 119
-        y: 41
-        width: 41
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 8
+        y: 1
+        width: 7
+        height: 40
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe31923b3d45b4043b69a1510b1fc866
-      internalID: -470031081
+      spriteID: 836b54b334e571d499ab8e9e447f2635
+      internalID: -73864118
       vertices: []
       indices: 
       edges: []
@@ -189,19 +176,19 @@ TextureImporter:
       name: wood_env_3
       rect:
         serializedVersion: 2
-        x: 28
-        y: 224
-        width: 68
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 70
+        y: 1
+        width: 20
+        height: 40
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c003abb760382c4093bf0c72861ecf8
-      internalID: -422418889
+      spriteID: 41c1a787e2515d643ab0608f19b5a452
+      internalID: -77594724
       vertices: []
       indices: 
       edges: []
@@ -210,19 +197,19 @@ TextureImporter:
       name: wood_env_4
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 16
+        x: 27
+        y: 1
+        width: 12
         height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64f78b0aaee4702449c5ce5259d549cf
-      internalID: -1729411307
+      spriteID: 5a482dca206801642a0fbf3d7f4dff6b
+      internalID: -1585989610
       vertices: []
       indices: 
       edges: []
@@ -230,7 +217,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d56b7eb0cacb0234996f955308e5db4e
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -238,11 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      wood_env_0: 1212444384
-      wood_env_1: 170982073
-      wood_env_2: -470031081
-      wood_env_3: -422418889
-      wood_env_4: -1729411307
+      wood_env_0: 29156344
+      wood_env_1: 1897729364
+      wood_env_2: -73864118
+      wood_env_3: -77594724
+      wood_env_4: -1585989610
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

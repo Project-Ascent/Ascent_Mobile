@@ -121,11 +121,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallDelay: 0
-  bossDelay: 1
+  bossDelay: 0.7
   fallingRock: {fileID: 0}
   TargetP: {fileID: 0}
   TargetB: {fileID: 0}
-  speed: 20
+  speed: 40
 --- !u!70 &8955402887107236613
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
