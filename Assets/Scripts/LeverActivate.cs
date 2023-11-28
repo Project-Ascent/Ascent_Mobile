@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LeverActivate : MonoBehaviour
 {
@@ -29,7 +30,6 @@ public class LeverActivate : MonoBehaviour
         lever_activate = true;
         leverSound.Play();
         animator.Play("lever_on");
-
         Invoke("MovePlayer", 1.5f);
     }
     void MovePlayer()

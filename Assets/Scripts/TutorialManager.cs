@@ -13,6 +13,10 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject[] tm3TextObjects;
     [SerializeField] private GameObject[] tm4TextObjects;
 
+    [SerializeField] public GameObject tm1TextBoss;
+    [SerializeField] public GameObject tm2TextBoss;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +36,12 @@ public class TutorialManager : MonoBehaviour
         tm2TextObjects = GameObject.FindGameObjectsWithTag("TM2Text");
         tm3TextObjects = GameObject.FindGameObjectsWithTag("TM3Text");
         tm4TextObjects = GameObject.FindGameObjectsWithTag("TM4Text");
+
+
+        tm1TextBoss = GameObject.Find("BossText1");
+        tm2TextBoss = GameObject.Find("BossText2");
+        tm2TextBoss.SetActive(false);
+        
         foreach (GameObject tm2TextObject in tm2TextObjects)
         {
             tm2TextObject.SetActive(false);
