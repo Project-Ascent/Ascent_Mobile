@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db986193fe66cb14eb768646906f6402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 0
+  amount: 2
   life3: {fileID: 840371904}
   life2: {fileID: 686812003}
   life1: {fileID: 596591891}
@@ -7738,7 +7738,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 794304376141691169, guid: df1bd2911863aa34ea505d8df6388064, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.41
+      value: 4.57
       objectReference: {fileID: 0}
     - target: {fileID: 794304376141691169, guid: df1bd2911863aa34ea505d8df6388064, type: 3}
       propertyPath: m_LocalPosition.y
