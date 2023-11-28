@@ -56,6 +56,7 @@ public class PlayerMove : MonoBehaviour
         }
         else if (inputRight)
         {
+            wallcollision = false;
             animator.Play("move");
             transform.localScale = new Vector3(2.5f, 2.5f, 1);
             moveDelta = new Vector3(moveX, 0, 0);

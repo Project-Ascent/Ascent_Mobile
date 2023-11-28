@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Attached_Tutorial : MonoBehaviour
 {
+    public GameObject player;
     GrapplingHook grappling;
     public DistanceJoint2D joint2D;
     TutorialManager tm;
@@ -100,6 +101,6 @@ public class Attached_Tutorial : MonoBehaviour
 
     void goToBossStage()
     {
-        SceneManager.LoadScene("BossStageScene");
+        player.transform.position = new Vector3(-44.0f, 28.5f, 0);
     }
 }

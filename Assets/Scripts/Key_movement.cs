@@ -42,9 +42,7 @@ public class Key_movement : MonoBehaviour
 
         if (player_catch)
         {
-            Debug.Log("Player: " + player.transform.position);
             transform.position = Vector3.Lerp(transform.position, player.transform.position, speed * Time.deltaTime);
-            Debug.Log("dir: " + transform.position);
         }
     }
 }

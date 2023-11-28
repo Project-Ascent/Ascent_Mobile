@@ -13,7 +13,7 @@ public class StartGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PlayerPrefs.SetFloat("current", 0f);
     }
 
     // Update is called once per frame

@@ -26,6 +26,10 @@ public class Door_open : MonoBehaviour
                 other.GetComponent<PlayerMove>().wallcollision = false;
                 other.GetComponent<PlayerMove>().doorOpening = true;
                 isOpen = true;
+                
+                TutorialManager tm = GameObject.Find("TutorialManager").GetComponent<TutorialManager>();
+                tm.tm1TextBoss.SetActive(false);
+                tm.tm2TextBoss.SetActive(true);
             }
             else
             {
