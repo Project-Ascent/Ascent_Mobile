@@ -17,13 +17,13 @@ public class SortRanking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
-        /*PlayerPrefs.SetFloat("current", 3.332f);
-        PlayerPrefs.SetFloat("0BestScore", 4.333f);
-        PlayerPrefs.SetFloat("2BestScore", 2f);
-        PlayerPrefs.SetFloat("3BestScore", 1f);
-        PlayerPrefs.SetFloat("1BestScore", 5f);
-        PlayerPrefs.SetFloat("4BestScore", 2.3f);*/
+        /*PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetFloat("current", 100f);
+        PlayerPrefs.SetFloat("0BestScore", 202.122f);
+        PlayerPrefs.SetFloat("2BestScore", 180.554f);
+        PlayerPrefs.SetFloat("3BestScore", 120.1889f);
+        PlayerPrefs.SetFloat("1BestScore", 240.45f);*/
+       
         current = PlayerPrefs.GetFloat("current");
         float tmpScore = 0f;
         int a = 0;
@@ -100,18 +100,22 @@ public class SortRanking : MonoBehaviour
             rankScore[i] = PlayerPrefs.GetFloat(i + "BestScore");
 
         }
+        string[] s = new string[5];
         for(int i = 0; i < 5; i++)
         {
             if (rankScore[i] == int.MaxValue)
             {
                 rankScore[i] = 0;
             }
+            rankScore[i] = Mathf.FloorToInt(rankScore[i]);
+            s[i] = Mathf.FloorToInt(rankScore[i] / 60) + "m " + (rankScore[i] % 60) + "s";
         }
-        text1.text = string.Format("{0:N5}", rankScore[0]);
-        text2.text = string.Format("{0:N5}", rankScore[1]);
-        text3.text = string.Format("{0:N5}", rankScore[2]);
-        text4.text = string.Format("{0:N5}", rankScore[3]);
-        text5.text = string.Format("{0:N5}", rankScore[4]);
+        Mathf.FloorToInt(rankScore[0]);
+        text1.text = s[0];
+        text2.text = s[1];
+        text3.text = s[2];
+        text4.text = s[3];
+        text5.text = s[4];
         for (int i = 0; i < 5; i++)
         {
             if (c == rankScore[i])
