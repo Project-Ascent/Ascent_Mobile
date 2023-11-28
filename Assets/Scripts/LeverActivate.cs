@@ -12,6 +12,7 @@ public class LeverActivate : MonoBehaviour
     public GameObject TargetB;
     public float speed;
     AudioSource bossSound;
+    AudioSource leverSound;
     private bool lever_activate = false;
 
     private Vector3 dir;
@@ -19,13 +20,16 @@ public class LeverActivate : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         bossSound = GameObject.Find("boss_sound").GetComponent<AudioSource>();
+        leverSound = GameObject.Find("lever_sound").GetComponent<AudioSource>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (lever_activate) return;
 
         lever_activate = true;
+        leverSound.Play();
         animator.Play("lever_on");
+
         Invoke("MovePlayer", 1.5f);
     }
     void MovePlayer()

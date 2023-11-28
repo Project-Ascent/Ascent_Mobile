@@ -10,12 +10,13 @@ public class TouchItem : MonoBehaviour
     }*/
     public bool checkDamaged;
     public ItemM item;
-
+    AudioSource itemSound;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
         if (collision.tag == "beans")
         {
+            itemSound.Play();
             Destroy(collision.gameObject);
             item.beans = true;
             item.airballoon = false;
@@ -24,6 +25,7 @@ public class TouchItem : MonoBehaviour
         }
         if (collision.tag == "airballoon")
         {
+            itemSound.Play();
             Destroy(collision.gameObject);
             item.beans = false;
             item.airballoon = true;
@@ -32,6 +34,7 @@ public class TouchItem : MonoBehaviour
         }
         if (collision.tag == "goose")
         {
+            itemSound.Play();
             Destroy(collision.gameObject);
             item.beans = false;
             item.airballoon = false;
@@ -46,6 +49,7 @@ public class TouchItem : MonoBehaviour
         item.beans = false;
         item.airballoon = false;
         item.goose = false;
+        itemSound = GameObject.Find("item_sound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
