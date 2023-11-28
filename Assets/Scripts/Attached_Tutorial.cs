@@ -101,6 +101,6 @@ public class Attached_Tutorial : MonoBehaviour
 
     void goToBossStage()
     {
-        player.transform.position = new Vector3(-44.0f, 28.5f, 0);
+        player.transform.position = new Vector3(player.transform.position.x, 28.5f, 0);
     }
 }

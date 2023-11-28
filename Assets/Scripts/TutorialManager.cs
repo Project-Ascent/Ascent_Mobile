@@ -120,7 +120,7 @@ public class TutorialManager : MonoBehaviour
         Transform playerTransform = GameObject.Find("Player").transform;
 
         // 새로운 위치로 Player 이동
-        playerTransform.position = new Vector3(-10f, -3.18f, 0f);
+        playerTransform.position = new Vector3(-40f, 28.5f, 0f);
         Invoke("SetTextGone", 2f);
     }
 
