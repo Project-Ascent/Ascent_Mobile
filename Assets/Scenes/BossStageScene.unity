@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0117294ddf218fa4d9c1885895dfee05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 3
   isDamaged: 0
   life: {fileID: 0}
 --- !u!4 &42970760 stripped
@@ -6720,15 +6720,15 @@ PrefabInstance:
     - target: {fileID: 8775105034055016523, guid: 9f71f55252ced8a4f9c2dbb7a15170fd, type: 3}
       propertyPath: life1
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 111868308}
     - target: {fileID: 8775105034055016523, guid: 9f71f55252ced8a4f9c2dbb7a15170fd, type: 3}
       propertyPath: life2
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 753526198}
     - target: {fileID: 8775105034055016523, guid: 9f71f55252ced8a4f9c2dbb7a15170fd, type: 3}
       propertyPath: life3
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1704467077}
     - target: {fileID: 8775105034055016523, guid: 9f71f55252ced8a4f9c2dbb7a15170fd, type: 3}
       propertyPath: currentLevel
       value: 4
