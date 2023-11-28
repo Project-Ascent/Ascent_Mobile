@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db986193fe66cb14eb768646906f6402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 2
+  amount: 0
   life3: {fileID: 840371904}
   life2: {fileID: 686812003}
   life1: {fileID: 596591891}
