@@ -7,17 +7,22 @@ public class Attached : MonoBehaviour
 {
     GrapplingHook grappling;
     public DistanceJoint2D joint2D;
+    AudioSource hookSound; 
+
+    
     // Start is called before the first frame update
     void Start()
     {
         grappling = GameObject.Find("Player").GetComponent<GrapplingHook>();
         joint2D = GetComponent<DistanceJoint2D>(); 
+        hookSound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Obstacles"))
         {
+            hookSound.Play();
             joint2D.enabled = true;
             grappling.isRangeMax = true;
             grappling.isAttach = true;

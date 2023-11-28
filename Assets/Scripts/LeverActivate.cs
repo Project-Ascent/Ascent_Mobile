@@ -11,13 +11,14 @@ public class LeverActivate : MonoBehaviour
     public GameObject TargetP;
     public GameObject TargetB;
     public float speed;
-
+    AudioSource bossSound;
     private bool lever_activate = false;
 
     private Vector3 dir;
     void Start()
     {
         animator = GetComponent<Animator>();
+        bossSound = GameObject.Find("boss_sound").GetComponent<AudioSource>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -52,6 +53,7 @@ public class LeverActivate : MonoBehaviour
 
     void afterDamage()
     {
+        bossSound.Play();
         TargetB.GetComponent<BossMove>().bossHit = true;
         TargetB.GetComponent<Animator>().Play("boss_damaged");
         TargetB.GetComponent<boss_life>().amount -= 1;
