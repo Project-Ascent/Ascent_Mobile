@@ -32,29 +32,32 @@ public class GrapplingHook : MonoBehaviour
         line.SetPosition(0, transform.position);
         line.SetPosition(1, hook.position);
 
-        // 이동 버튼을 최초로 눌렀을 때
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == UnityEngine.TouchPhase.Began)
+        // 다수의 터치 입력 처리
+        for (int i = 0; i < Input.touchCount; i++)
         {
-            if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+            Touch touch = Input.GetTouch(i);
+            //Debug.Log("터치 발생!");
+            // UI 터치와 화면 터치 구분
+            if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
             {
-                Debug.Log("isMoveButtonPressed가 True로 바뀜");
-                isMoveButtonPressed = true;
-            }
+                // 화면 터치일 때
+                if (touch.phase == UnityEngine.TouchPhase.Began)
+                {
+                    // Debug.Log("이 터치는 화면 터치입니다.");
 
-            // 훅이 발사되지 않은 상태에서만 훅을 발사
-            if (!isHookFired && isMoveButtonPressed)
-            {
-                Debug.Log("훅 발사");
-                FireHook();
+                    // 훅 발사
+                    if (!isHookFired)
+                    {
+                        Vector2 touchPosition = touch.position;
+                        FireHook(touchPosition);
+                    }
+                    else if (isAttach)
+                    {
+                        ResetHookState();
+                    }
+                }
             }
         }
-
-        // 이동 버튼을 떼었을 때
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == UnityEngine.TouchPhase.Ended)
-        {
-            isMoveButtonPressed = false;
-        }
-
 
         // 훅 발사 후의 동작들
         if (isHookFired && !isRangeMax)
@@ -66,21 +69,7 @@ public class GrapplingHook : MonoBehaviour
         {
             RetractHook();
         }
-
-        else if (isAttach)
-        {
-            // 훅이 이미 붙어있는 상태에서 이동 버튼을 누를 때는 훅을 회수하지 않음
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == UnityEngine.TouchPhase.Began)
-            {
-                if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
-                {
-                    Debug.Log("현재 붙어있는 상태, 이동 버튼을 눌러도 훅이 회수되면 안돼");
-                    ResetHookState();
-                }
-            }
-        }
     }
-
     void InitializeLineRenderer()
     {
         line.positionCount = 2;
@@ -95,10 +84,11 @@ public class GrapplingHook : MonoBehaviour
         hook.gameObject.SetActive(false);
     }
 
-    void FireHook()
+    void FireHook(Vector2 direction)
     {
+        print("훅 발사!");
         hook.position = transform.position;
-        mouseDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        mouseDir = Camera.main.ScreenToWorldPoint(direction) - transform.position;
         isHookFired = true;
         isRangeMax = false;
         isAttach = false;
