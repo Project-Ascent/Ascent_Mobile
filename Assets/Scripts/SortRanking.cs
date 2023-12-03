@@ -13,6 +13,7 @@ public class SortRanking : MonoBehaviour
     public TMP_Text text3;
     public TMP_Text text4;
     public TMP_Text text5;
+    public TMP_Text playerRecord;
     private float current;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,8 @@ public class SortRanking : MonoBehaviour
         //PlayerPrefs.SetFloat("1BestScore", 240.45f);*/
        
         current = PlayerPrefs.GetFloat("current");
+        string playerRecordString = Mathf.FloorToInt(current / 60) + "m " + (Mathf.FloorToInt(current) % 60) + "s";
+        playerRecord.text = playerRecordString;
         float tmpScore = 0f;
         int a = 0;
        
@@ -116,6 +119,7 @@ public class SortRanking : MonoBehaviour
         text3.text = s[2];
         text4.text = s[3];
         text5.text = s[4];
+
         for (int i = 0; i < 5; i++)
         {
             if (c == rankScore[i])
@@ -140,12 +144,6 @@ public class SortRanking : MonoBehaviour
                         break;
                 }
             }
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
     }
 }
