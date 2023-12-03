@@ -17,12 +17,12 @@ public class SortRanking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetFloat("current", 100f);
-        PlayerPrefs.SetFloat("0BestScore", 202.122f);
-        PlayerPrefs.SetFloat("2BestScore", 180.554f);
-        PlayerPrefs.SetFloat("3BestScore", 120.1889f);
-        PlayerPrefs.SetFloat("1BestScore", 240.45f);*/
+        //PlayerPrefs.DeleteAll();
+        //PlayerPrefs.SetFloat("current", 100f);
+        //PlayerPrefs.SetFloat("0BestScore", 202.122f);
+        //PlayerPrefs.SetFloat("2BestScore", 180.554f);
+        //PlayerPrefs.SetFloat("3BestScore", 120.1889f);
+        //PlayerPrefs.SetFloat("1BestScore", 240.45f);*/
        
         current = PlayerPrefs.GetFloat("current");
         float tmpScore = 0f;
