@@ -14,7 +14,9 @@ public class CameraMovementBoss : MonoBehaviour
         Vector3 dir = player.transform.position - this.transform.position;
         if (!death && player.transform.position.y < 20)
         {
-            Vector3 moveVector = new Vector3(0.0f, (dir.y + 3.8f) * cameraSpeed * Time.deltaTime, 0.0f);
+            Vector3 moveVector = new Vector3(0.0f, (dir.y + 3.5f) * cameraSpeed * Time.deltaTime, 0.0f);
+            // 박준범 폰 S23 : 3.2f
+            // 최민규 폰 S10 5G : 3.5f
             this.transform.Translate(moveVector);
         }
     }
