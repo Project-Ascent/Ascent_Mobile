@@ -34,7 +34,7 @@ public class CameraMovement : MonoBehaviour
         }
         if (currentLevel == 2)
         {
-            SceneManager.LoadScene("GameOverScene1");
+            SceneManager.LoadScene("GameOverScene2");
         }
         if (currentLevel == 3)
         {
