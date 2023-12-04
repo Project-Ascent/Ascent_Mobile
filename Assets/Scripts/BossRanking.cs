@@ -22,7 +22,7 @@ public class BossRanking : MonoBehaviour
         if (life.amount == 0)
         {
             finishTime = Time.time;
-            PlayerPrefs.SetFloat("current", finishTime - startTime);
+            PlayerPrefs.SetFloat("current", climbingTime + finishTime - startTime);
             print(PlayerPrefs.GetFloat("current"));
         }
     }
