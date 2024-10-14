@@ -6,48 +6,48 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LobbyScene.unity
+    path: Assets/Scenes/System Scenes/LobbyScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/TutorialScene.unity
+    path: Assets/Scenes/System Scenes/TutorialScene.unity
     guid: a79dda8516bcc29419ef0a4e764cb6f5
   - enabled: 1
-    path: Assets/Scenes/SelectLevelScene.unity
+    path: Assets/Scenes/System Scenes/SelectLevelScene.unity
     guid: 5d37c80a61212674eb63742148e56fde
   - enabled: 1
-    path: Assets/Scenes/ClimbingLevel1.unity
+    path: Assets/Scenes/PC Version(Old)/ClimbingLevel1.unity
     guid: 7c3a650b382c1b344838c11dddf22388
   - enabled: 1
-    path: Assets/Scenes/ClimbingLevel1_Mobile.unity
+    path: Assets/Scenes/Mobile Version/ClimbingLevel1_Mobile.unity
     guid: 43fd498d85da87c4da59ea276d122a2a
   - enabled: 1
-    path: Assets/Scenes/GameOverScene1.unity
+    path: Assets/Scenes/System Scenes/GameOverScene1.unity
     guid: 28916fa2fd87d9d48aca0df1cd62dd9c
   - enabled: 1
-    path: Assets/Scenes/ClimbingLevel2.unity
+    path: Assets/Scenes/PC Version(Old)/ClimbingLevel2.unity
     guid: cd99745deebc1f64598b41d9afdcfadf
   - enabled: 1
-    path: Assets/Scenes/GameOverScene2.unity
+    path: Assets/Scenes/System Scenes/GameOverScene2.unity
     guid: acdbf1f59bc80b7459f0600a88454219
   - enabled: 1
-    path: Assets/Scenes/ClimbingLevel3.unity
+    path: Assets/Scenes/PC Version(Old)/ClimbingLevel3.unity
     guid: 7d628766d92d8084c9fea7d900ad8dba
   - enabled: 1
-    path: Assets/Scenes/GameOverScene3.unity
+    path: Assets/Scenes/System Scenes/GameOverScene3.unity
     guid: 9fb0bc46387a17e4fabe8e912a2ac503
   - enabled: 1
-    path: Assets/Scenes/BossStageScene.unity
+    path: Assets/Scenes/Mobile Version/BossStageScene.unity
     guid: 9415da54310909e4daac15a37248eaf8
   - enabled: 1
-    path: Assets/Scenes/GameOverSceneBoss.unity
+    path: Assets/Scenes/System Scenes/GameOverSceneBoss.unity
     guid: b4a978c35eed3454f9fab6ad0fc0b9ad
   - enabled: 1
-    path: Assets/Scenes/WinScene.unity
+    path: Assets/Scenes/System Scenes/WinScene.unity
     guid: 2b6d27ccf242e4845a9f6be28ebcd7dc
   - enabled: 1
-    path: Assets/Scenes/TestScene.unity
+    path: Assets/Scenes/Test/TestScene.unity
     guid: 89ef3540cadcb514da4c7b801af4e3f3
   - enabled: 1
-    path: Assets/Scenes/ClimbingLevel2_Mobile.unity
+    path: Assets/Scenes/Mobile Version/ClimbingLevel2_Mobile.unity
     guid: f17acacc0581eb34994bb1029cbfc0d2
   m_configObjects: {}
