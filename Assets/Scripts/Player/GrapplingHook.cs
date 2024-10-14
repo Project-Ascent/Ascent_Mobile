@@ -86,7 +86,6 @@ public class GrapplingHook : MonoBehaviour
 
     void FireHook(Vector2 direction)
     {
-        print("»≈ πﬂªÁ!");
         hook.position = transform.position;
         mouseDir = Camera.main.ScreenToWorldPoint(direction) - transform.position;
         isHookFired = true;
