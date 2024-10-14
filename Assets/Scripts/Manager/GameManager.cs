@@ -20,15 +20,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
 
     public void LoadSceneWithName(string sceneName)
@@ -36,7 +27,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public bool getIsTutorial()
+    public bool GetIsTutorial()
     {
         return isTutorial;
     }

@@ -17,16 +17,5 @@ namespace HookControlState
             }
         }
 
-        void RetractHook()
-        {
-            hook.position = Vector2.MoveTowards(hook.position, transform.position, Time.deltaTime * 1000);
-
-            if (Vector2.Distance(transform.position, hook.position) < 0.1f)
-            {
-                ResetHookState();
-                isMoveButtonPressed = false; // 버튼을 떼면 이 변수를 false로 설정
-            }
-        }
-
     }
 }

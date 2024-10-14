@@ -23,7 +23,7 @@ namespace HookControlState
 
         void Update()
         {
-            FireHook();
+            // FireHook();
             if (CheckMaxRange())
             {
                 // 상태 변화

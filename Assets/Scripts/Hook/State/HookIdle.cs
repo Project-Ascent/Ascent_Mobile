@@ -38,26 +38,26 @@ namespace HookControlState
 
         void RetractHook()
         {
-            hook.position = Vector2.MoveTowards(hook.position, transform.position, Time.deltaTime * 1000);
+            hookController.hook.position = Vector2.MoveTowards(hookController.hook.position, transform.position, Time.deltaTime * 1000);
 
-            if (Vector2.Distance(transform.position, hook.position) < 0.1f)
+            if (Vector2.Distance(transform.position, hookController.hook.position) < 0.1f)
             {
-                hook.GetComponent<Attached>().joint2D.enabled = false;
-                hook.gameObject.SetActive(false);
+                hookController.hook.GetComponent<Attached>().joint2D.enabled = false;
+                hookController.hook.gameObject.SetActive(false);
             }
         }
 
         public void ResetHookState()
         {
-            if (GameManager.Instance.getIsTutorial())
+            if (GameManager.Instance.GetIsTutorial())
             {
-                hook.GetComponent<Attached_Tutorial>().joint2D.enabled = false;
+                hookController.hook.GetComponent<Attached_Tutorial>().joint2D.enabled = false;
             }
             else
             {
-                hook.GetComponent<Attached>().joint2D.enabled = false;
+                hookController.hook.GetComponent<Attached>().joint2D.enabled = false;
             }
-            hook.gameObject.SetActive(false);
+            hookController.hook.gameObject.SetActive(false);
         }
     }
 }

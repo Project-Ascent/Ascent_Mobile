@@ -43,7 +43,10 @@ namespace HookControlState
     {
         public HookState idleState, fireState, attachState;
         private HookStateContext hookStateContext;
-        private float launchSpeed = 20f;
+        private static float launchSpeed = 20f;
+
+        public LineRenderer lineRenderer;
+        public Transform hook;
 
         void Start()
         {
