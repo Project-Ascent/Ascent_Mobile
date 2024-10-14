@@ -35,4 +35,15 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public bool getIsTutorial()
+    {
+        return isTutorial;
+    }
+
+    public void SetIsTutorial(bool isTutorial)
+    {
+        this.isTutorial = isTutorial;
+    }
+
 }
