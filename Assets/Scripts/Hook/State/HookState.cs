@@ -47,9 +47,6 @@ namespace HookControlState
         void Start()
         {
             hookStateContext = new HookStateContext(this);
-            //idleState = gameObject.AddComponent<HookIdleState>();
-            //fireState = gameObject.AddComponent<HookFireState>();
-            //attachState = gameObject.AddComponent<HookAttachState>();
             idleState = new HookIdleState();
             fireState = new HookFireState();
             attachState = new HookAttachState();
@@ -95,8 +92,6 @@ namespace HookControlState
             lineRenderer.useWorldSpace = true;
             lineRenderer.SetPosition(0, playerPosition); // Player의 포지션
             lineRenderer.SetPosition(1, transform.position);
-
-            // gameObject.SetActive(true);
         }
 
         public void HookIdle()
