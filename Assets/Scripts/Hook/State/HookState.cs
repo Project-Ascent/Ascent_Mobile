@@ -1,20 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 namespace HookControlState
 {
-    //public enum State
-    //{
-    //    IDLE,
-    //    FIRE,
-    //    ATTACH,
-    //}
-
     public interface HookState
     {
-        void Action(HookController controller);
+        void Handle(HookController controller);
     }
 
     public class HookStateContext
@@ -27,15 +21,15 @@ namespace HookControlState
             this.hookController = controller;
         }
 
-        public void DoAction()
+        public void ChangeState()
         {
-            currentState.Action(hookController);
+            currentState.Handle(hookController);
         }
 
-        public void DoAction(HookState state)
+        public void ChangeState(HookState state)
         {
             currentState = state;
-            currentState.Action(hookController);
+            currentState.Handle(hookController);
         }
     }
 
@@ -46,30 +40,79 @@ namespace HookControlState
         private static float launchSpeed = 20f;
 
         public LineRenderer lineRenderer;
-        public Transform hook;
+        public Vector3 playerPosition;
+        public Vector3 hookPosition;
+
 
         void Start()
         {
             hookStateContext = new HookStateContext(this);
-            idleState = gameObject.AddComponent<HookIdleState>();
-            fireState = gameObject.AddComponent<HookFireState>();
-            attachState = gameObject.AddComponent<HookAttachState>();
-            hookStateContext.DoAction(idleState);
+            //idleState = gameObject.AddComponent<HookIdleState>();
+            //fireState = gameObject.AddComponent<HookFireState>();
+            //attachState = gameObject.AddComponent<HookAttachState>();
+            idleState = new HookIdleState();
+            fireState = new HookFireState();
+            attachState = new HookAttachState();
+            InitLineRendererAndHook();
+            hookStateContext.ChangeState(idleState);
+        }
+
+        void Update()
+        {
+            // 부모 오브젝트인 Player의 Transform을 가져옴
+            playerPosition = transform.parent.position;
+            hookPosition = transform.position;
+
+            // 여러 터치가 동시에 들어왔을 때의 처리
+            for (int i = 0; i < Input.touchCount; i++)
+            {
+                Touch touch = Input.GetTouch(i);
+                // UI 터치와 화면 터치 구분
+                if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+                {
+                    // 화면 터치일 때
+                    if (touch.phase == UnityEngine.TouchPhase.Began)
+                    {
+                        if (hookStateContext.currentState == idleState)
+                        {
+                            // HookFire로 상태 변경
+                            HookFire(touch.position);
+                        }
+                        else
+                        {
+                            // 훅을 발사중이거나, 플랫폼에 매달려 있을때는 HookIdle로 상태 변경
+                            HookIdle();
+                        }
+                    }
+                }
+            }
+        }
+
+        void InitLineRendererAndHook()
+        {
+            lineRenderer.positionCount = 2;
+            lineRenderer.endWidth = lineRenderer.startWidth = 0.05f;
+            lineRenderer.useWorldSpace = true;
+            lineRenderer.SetPosition(0, playerPosition); // Player의 포지션
+            lineRenderer.SetPosition(1, transform.position);
+
+            // gameObject.SetActive(true);
         }
 
         public void HookIdle()
         {
-            hookStateContext.DoAction(idleState);
+            hookStateContext.ChangeState(idleState);
         }
 
-        public void HookFire()
+        public void HookFire(Vector2 touchPosition)
         {
-            hookStateContext.DoAction(fireState);
+            hookStateContext.ChangeState(fireState);
+            (fireState as HookFireState).Handle(this, touchPosition);
         }
 
         public void HookAttach()
         {
-            hookStateContext.DoAction(attachState);
+            hookStateContext.ChangeState(attachState);
 
         }
 

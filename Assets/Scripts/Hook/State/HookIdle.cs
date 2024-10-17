@@ -6,58 +6,42 @@ using UnityEngine;
 
 namespace HookControlState
 {
-    public class HookIdleState : MonoBehaviour, HookState
+    public class HookIdleState : HookState
     {
         private HookController hookController;
 
-        public void Action(HookController controller)
+        public void Handle(HookController controller)
         {
             if (!hookController) // null이거나 비활성화 상태인지 확인
             {
                 hookController = controller;
             }
-        }
-
-        void Update()
-        {
-            // 여러 터치가 동시에 들어왔을 때의 처리
-            for (int i = 0; i < Input.touchCount; i++)
-            {
-                Touch touch = Input.GetTouch(i);
-                // UI 터치와 화면 터치 구분
-                if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
-                {
-                    // 화면 터치일 때
-                    if (touch.phase == UnityEngine.TouchPhase.Began)
-                    {
-                        // HookFire로 상태 변경
-                    }
-                }
-            }
+            RetractHook();
         }
 
         void RetractHook()
         {
-            hookController.hook.position = Vector2.MoveTowards(hookController.hook.position, transform.position, Time.deltaTime * 1000);
+            hookController.hookPosition = Vector2.MoveTowards(hookController.hookPosition, hookController.playerPosition, Time.deltaTime * 1000);
 
-            if (Vector2.Distance(transform.position, hookController.hook.position) < 0.1f)
+            if (Vector2.Distance(hookController.playerPosition, hookController.hookPosition) < 0.1f)
             {
-                hookController.hook.GetComponent<Attached>().joint2D.enabled = false;
-                hookController.hook.gameObject.SetActive(false);
+                hookController.GetComponent<DistanceJoint2D>().enabled = false;
+                hookController.gameObject.SetActive(false);
             }
         }
 
+        // (구) 튜토리얼과 실제 스테이지 로직이 갈렸을 때 사용했던 함수
         public void ResetHookState()
         {
             if (GameManager.Instance.GetIsTutorial())
             {
-                hookController.hook.GetComponent<Attached_Tutorial>().joint2D.enabled = false;
+                hookController.GetComponent<DistanceJoint2D>().enabled = false;
             }
             else
             {
-                hookController.hook.GetComponent<Attached>().joint2D.enabled = false;
+                hookController.GetComponent<DistanceJoint2D>().enabled = false;
             }
-            hookController.hook.gameObject.SetActive(false);
+            hookController.gameObject.SetActive(false);
         }
     }
 }
