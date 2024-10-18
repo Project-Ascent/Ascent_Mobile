@@ -8,7 +8,9 @@ namespace HookControlState
 {
     public interface HookState
     {
-        void Handle(HookController controller);
+        public void Enter(HookController controller);
+        public void Update();
+        public void Exit();
     }
 
     public class HookStateContext
@@ -23,94 +25,28 @@ namespace HookControlState
 
         public void ChangeState()
         {
-            currentState.Handle(hookController);
+            currentState = new HookIdleState();
+            currentState.Enter(hookController);
         }
 
-        public void ChangeState(HookState state)
+        public void ChangeState(HookState nextState)
         {
-            currentState = state;
-            currentState.Handle(hookController);
-        }
-    }
-
-    public class HookController : MonoBehaviour
-    {
-        public HookState idleState, fireState, attachState;
-        private HookStateContext hookStateContext;
-        private static float launchSpeed = 20f;
-
-        public LineRenderer lineRenderer;
-        public Vector3 playerPosition;
-        public Vector3 hookPosition;
-
-
-        void Start()
-        {
-            hookStateContext = new HookStateContext(this);
-            idleState = new HookIdleState();
-            fireState = new HookFireState();
-            attachState = new HookAttachState();
-            InitLineRendererAndHook();
-            hookStateContext.ChangeState(idleState);
-        }
-
-        void Update()
-        {
-            // 부모 오브젝트인 Player의 Transform을 가져옴
-            playerPosition = transform.parent.position;
-            hookPosition = transform.position;
-
-            // 여러 터치가 동시에 들어왔을 때의 처리
-            for (int i = 0; i < Input.touchCount; i++)
+            if (currentState == null)
             {
-                Touch touch = Input.GetTouch(i);
-                // UI 터치와 화면 터치 구분
-                if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
-                {
-                    // 화면 터치일 때
-                    if (touch.phase == UnityEngine.TouchPhase.Began)
-                    {
-                        if (hookStateContext.currentState == idleState)
-                        {
-                            // HookFire로 상태 변경
-                            HookFire(touch.position);
-                        }
-                        else
-                        {
-                            // 훅을 발사중이거나, 플랫폼에 매달려 있을때는 HookIdle로 상태 변경
-                            HookIdle();
-                        }
-                    }
-                }
+                Debug.Log("최초 시작");
+                currentState = nextState;
+                currentState.Enter(hookController);
             }
+            currentState.Exit();
+            currentState = nextState;
+            currentState.Enter(hookController);
         }
 
-        void InitLineRendererAndHook()
+        public void ChangeState(HookState nextState, Vector2 mousePosition)
         {
-            lineRenderer.positionCount = 2;
-            lineRenderer.endWidth = lineRenderer.startWidth = 0.05f;
-            lineRenderer.useWorldSpace = true;
-            lineRenderer.SetPosition(0, playerPosition); // Player의 포지션
-            lineRenderer.SetPosition(1, transform.position);
+            currentState.Exit();
+            currentState = nextState;
+            (currentState as HookFireState).Enter(hookController, mousePosition);
         }
-
-        public void HookIdle()
-        {
-            hookStateContext.ChangeState(idleState);
-        }
-
-        public void HookFire(Vector2 touchPosition)
-        {
-            hookStateContext.ChangeState(fireState);
-            (fireState as HookFireState).Handle(this, touchPosition);
-        }
-
-        public void HookAttach()
-        {
-            hookStateContext.ChangeState(attachState);
-
-        }
-
-        public float GetLaunchSpeed() { return launchSpeed; }
     }
 }

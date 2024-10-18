@@ -3,11 +3,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    PlayerInputAction action;
-    InputAction moveAction;
-    private float movementSpeed = 0.08f;
+    public delegate void OnMouseClick(Vector3 mousePosition);
+    public static event OnMouseClick MouseClickEvent;
 
+    PlayerInputAction action;
+    InputAction moveAction, clickAction;
     PlayerAnimation playerAnimation;
+    private float movementSpeed = 0.08f;
 
     private void Awake()
     {
@@ -16,6 +18,11 @@ public class PlayerMovement : MonoBehaviour
         moveAction.Enable();
         moveAction.started += OnMoveStarted;
         moveAction.canceled += OnMoveCanceled;
+
+        clickAction = action.Player.Click;
+        clickAction.Enable();
+        clickAction.started += OnClickStarted;
+
         playerAnimation = GetComponent<PlayerAnimation>();
     }
 
@@ -46,10 +53,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Update()
+    void OnClickStarted(InputAction.CallbackContext context)
     {
-        Vector2 keyboardVector = moveAction.ReadValue<Vector2>();
-        Move(keyboardVector.x);
+        Vector3 mousePosition = Mouse.current.position.ReadValue();
+        if (MouseClickEvent != null)
+        {
+            MouseClickEvent.Invoke(mousePosition);
+        }
+        else
+        {
+            Debug.Log("MouseClickEvent is null");
+        }
     }
 
     void Move(float x)
@@ -64,5 +78,12 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 newRotation = new Vector3(0, yRotation, 0);
         this.transform.eulerAngles = newRotation;
+    }
+
+
+    void Update()
+    {
+        Vector2 keyboardVector = moveAction.ReadValue<Vector2>();
+        Move(keyboardVector.x);
     }
 }
