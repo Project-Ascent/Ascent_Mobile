@@ -13,13 +13,13 @@ GameObject:
   - component: {fileID: 8267829324478114674}
   - component: {fileID: 6137545689437101494}
   - component: {fileID: 3912261240883943462}
-  - component: {fileID: 5186961363830738868}
   - component: {fileID: 2147136095268649168}
-  - component: {fileID: 848162874763299399}
   - component: {fileID: 8775105034055016523}
   - component: {fileID: 3008815267194659439}
   - component: {fileID: 7231709054140814065}
   - component: {fileID: 1735040406488672453}
+  - component: {fileID: 8650217069358577092}
+  - component: {fileID: 3648005987685896019}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -178,24 +178,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5186961363830738868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3406785806691129820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18392d09aead34f4882a0e01b7833015, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveX: 3
-  curY: 0
-  wallcollision: 0
-  doorOpening: 0
-  inputLeft: 0
-  inputRight: 0
 --- !u!114 &2147136095268649168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,38 +196,9 @@ MonoBehaviour:
   isHookFired: 0
   isRangeMax: 0
   isAttach: 0
+  isTutorial: 0
   hookableAreaWidthPercentage: 0.8
   hookableAreaHeightPercentage: 0.8
---- !u!114 &848162874763299399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3406785806691129820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 4facd049c06a6a647bedae56f566975b, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &8775105034055016523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +260,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkDamaged: 0
   item: {fileID: 0}
+--- !u!114 &8650217069358577092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3406785806691129820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3edb48e32df254fab90c16529d0782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3648005987685896019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3406785806691129820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e22ddece0f7e4f4390cf5ee55d65733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8507456096837983279
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,7 +5,9 @@ public class PlayerMovement : MonoBehaviour
 {
     PlayerInputAction action;
     InputAction moveAction;
-    private float movementSpeed = 1f;
+    private float movementSpeed = 0.05f;
+
+    PlayerAnimation playerAnimation;
 
     private void Awake()
     {
@@ -16,16 +16,34 @@ public class PlayerMovement : MonoBehaviour
         moveAction.Enable();
         moveAction.started += OnMoveStarted;
         moveAction.canceled += OnMoveCanceled;
+        playerAnimation = GetComponent<PlayerAnimation>();
     }
 
     void OnMoveStarted(InputAction.CallbackContext context)
     {
-        // 걷는 애니메이션 실행
+        Vector2 inputVector = context.ReadValue<Vector2>();
+        if (inputVector.x < 0)
+        {
+            Rotate(180);
+        }
+
+        if (inputVector.x > 0)
+        {
+            Rotate(0);
+        }
+
+        if (playerAnimation != null)
+        {
+            playerAnimation.PlayWalkAnimation();
+        }
     }
 
     void OnMoveCanceled(InputAction.CallbackContext context)
     {
-        // Idle 애니메이션 실행
+        if (playerAnimation != null)
+        {
+            playerAnimation.PlayIdleAnimation();
+        }
     }
 
     void Update()
@@ -38,6 +56,13 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 moveDirection = new Vector3(
                 x * movementSpeed, 0, 0);
-        this.transform.Translate(moveDirection, Space.Self);
+        // this.transform.Translate(moveDirection, Space.Self); // 플레이어의 로컬 좌표 기준으로 이동
+        this.transform.Translate(moveDirection, Space.World); // 월드 좌표 기준으로 이동
+    }
+
+    void Rotate(float yRotation)
+    {
+        Vector3 newRotation = new Vector3(0, yRotation, 0);
+        this.transform.eulerAngles = newRotation;
     }
 }
