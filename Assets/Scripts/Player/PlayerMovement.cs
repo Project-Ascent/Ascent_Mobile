@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     PlayerInputAction action;
     InputAction moveAction;
-    private float movementSpeed = 0.05f;
+    private float movementSpeed = 0.08f;
 
     PlayerAnimation playerAnimation;
 
@@ -22,12 +22,12 @@ public class PlayerMovement : MonoBehaviour
     void OnMoveStarted(InputAction.CallbackContext context)
     {
         Vector2 inputVector = context.ReadValue<Vector2>();
-        if (inputVector.x < 0)
+        if (inputVector.x < 0 && transform.rotation.y == 0)
         {
             Rotate(180);
         }
 
-        if (inputVector.x > 0)
+        if (inputVector.x > 0 && transform.rotation.y != 0)
         {
             Rotate(0);
         }
