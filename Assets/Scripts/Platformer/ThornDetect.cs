@@ -51,7 +51,7 @@ public class ThornDetect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pDamage = GameObject.Find("thorn_sound").GetComponent<AudioSource>();
+        pDamage = GameObject.Find("Thornsound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

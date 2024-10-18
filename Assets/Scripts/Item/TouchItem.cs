@@ -49,7 +49,7 @@ public class TouchItem : MonoBehaviour
         item.beans = false;
         item.airballoon = false;
         item.goose = false;
-        itemSound = GameObject.Find("item_sound").GetComponent<AudioSource>();
+        itemSound = GameObject.Find("ItemSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
