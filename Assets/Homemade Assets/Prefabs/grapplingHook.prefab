@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5177379597081339271}
   - component: {fileID: 7906506518963448147}
   - component: {fileID: 2718536928029223052}
-  - component: {fileID: -5139723253292212263}
   - component: {fileID: 4858168114304593924}
   - component: {fileID: 8425294966274513529}
   m_Layer: 8
@@ -182,19 +181,6 @@ DistanceJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 2
   m_MaxDistanceOnly: 0
---- !u!114 &-5139723253292212263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5721295519944856190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85a7186fc16537a4493dc8489b28138f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  joint2D: {fileID: 0}
 --- !u!114 &4858168114304593924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,5 +207,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 0}
   playerPosition: {x: 0, y: 0, z: 0}
-  hookPosition: {x: 0, y: 0, z: 0}
   goalPosition: {x: 0, y: 0, z: 0}

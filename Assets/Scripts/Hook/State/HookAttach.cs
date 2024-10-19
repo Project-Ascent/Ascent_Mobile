@@ -21,8 +21,8 @@ namespace HookControlState
 
         public void Update()
         {
-            //hookController.lineRenderer.SetPosition(0, hookController.playerPosition);
-            //hookController.lineRenderer.SetPosition(1, hookController.transform.position);
+            hookController.lineRenderer.SetPosition(0, hookController.playerPosition);
+            hookController.lineRenderer.SetPosition(1, hookController.transform.position);
             if (hookController.GetIsMouseClicked())
             {
                 hookController.hookStateContext.ChangeState(hookController.idleState);

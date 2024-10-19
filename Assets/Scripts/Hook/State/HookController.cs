@@ -14,6 +14,9 @@ namespace HookControlState
         public Vector3 playerPosition; // 부모 오브젝트인 플레이어의 포지션(World)
         public Vector3 goalPosition; // 마우스로 클릭한 지점의 포지션(World)
 
+        public delegate void CollisionHandler(Collider2D collision);
+        public event CollisionHandler OnCollision;
+
 
         void Start()
         {
@@ -46,14 +49,12 @@ namespace HookControlState
 
         void OnMouseClick(Vector3 mousePosition)
         {
-            Debug.Log("OnMouseClick 호출");
             isMouseClicked = true;
             goalPosition = mousePosition;
         }
 
         void OnEnable()
         {
-            // PlayerMovement의 마우스 클릭 이벤트 구독
             PlayerMovement.MouseClickEvent += OnMouseClick;
         }
 
@@ -72,10 +73,30 @@ namespace HookControlState
             gameObject.GetComponent<SpriteRenderer>().enabled = val;
             gameObject.GetComponent<BoxCollider2D>().enabled = val;
         }
-
         public float GetLaunchSpeed() { return launchSpeed; }
-
         public bool GetIsMouseClicked() { return isMouseClicked; }
         public void SetIsMouseClicked(bool val) { isMouseClicked = val; }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Obstacles"))
+            {
+                Debug.Log("장애물에 부딪힘");
+                // currentState가 HookFireState인지 확인하고 메서드 호출
+                if (hookStateContext.currentState is HookFireState)
+                {
+                    (hookStateContext.currentState as HookFireState).
+                        HandleCollisionWithObstacle(collision.transform.position);
+                }
+                else
+                {
+                    Debug.LogError("현재 상태가 HookFireState가 아닙니다.");
+                }
+            }
+
+            if (collision.CompareTag("FinishObject"))
+            {
+                GameManager.Instance.LoadSceneWithName("BossScene");
+            }
+        }
     }
 }

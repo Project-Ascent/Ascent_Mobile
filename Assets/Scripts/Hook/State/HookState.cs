@@ -20,7 +20,7 @@ namespace HookControlState
 
         public HookStateContext(HookController controller)
         {
-            this.hookController = controller;
+            hookController = controller;
         }
 
         public void ChangeState()
@@ -33,7 +33,6 @@ namespace HookControlState
         {
             if (currentState == null)
             {
-                Debug.Log("최초 시작");
                 currentState = nextState;
                 currentState.Enter(hookController);
             }

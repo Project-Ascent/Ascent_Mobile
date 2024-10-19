@@ -1,8 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Overlays;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 namespace HookControlState
 {
@@ -11,7 +10,8 @@ namespace HookControlState
         private HookController hookController;
         private Vector2 targetPosition;
         private Vector2 mouseDirection;
-        private int maxRange = 10;
+        private Vector2 collisionPosition;
+        private float maxRange = 10f;
 
         public void Enter(HookController controller)
         {
@@ -25,17 +25,16 @@ namespace HookControlState
 
         public void Enter(HookController controller, Vector2 clickPosition)
         {
-            if (!hookController) // null이거나 비활성화 상태인지 확인
+            if (!hookController)
             {
                 hookController = controller;
             }
             targetPosition = Camera.main.ScreenToWorldPoint(clickPosition);
-            Debug.Log("HookFireState 진입");
             hookController.gameObject.SetActive(true);
             hookController.SetHookEnabled(true);
-
-            // c# min뭐였지
-            maxRange = min(maxRange, Vector2.Distance(hookController.playerPosition, hookController.transform.position));
+            maxRange = Math.Min(10f, Vector2.Distance(hookController.playerPosition, targetPosition));
+            hookController.transform.parent.GetComponent<PlayerMovement>().SetCanMove(false);
+            // Debug.Log("HookFireState 진입");
         }
 
         public void Update()
@@ -43,27 +42,25 @@ namespace HookControlState
             MoveHookTowardsTarget();
             if (CheckMaxRange())
             {
-                // MaxRange에 도달하면 다시 idleState로 이동
                 hookController.hookStateContext.ChangeState(hookController.idleState);
             }
-
-            // 안부딪혔는데 targetPosition까지 도달하면 다시 idleState로 이동
-
-
-            // 플랫폼에 부딪히면 attachState로 이동
-            // hookController.hookStateContext.ChangeState(hookController.attachState);
         }
 
         public void Exit()
         {
-
+            hookController.transform.parent.GetComponent<PlayerMovement>().SetCanMove(true);
+            hookController.transform.position = collisionPosition;
+            // Debug.Log("HookFire Exit 함수 호출");
         }
 
         void MoveHookTowardsTarget()
         {
             hookController.gameObject.SetActive(true);
+
+            Vector3 worldHookPosition = hookController.transform.position;
+
             hookController.transform.position = Vector2.MoveTowards
-                (hookController.transform.position,
+                (worldHookPosition,
                 targetPosition, 
                 Time.deltaTime * hookController.GetLaunchSpeed());
             CheckMaxRange();
@@ -72,22 +69,13 @@ namespace HookControlState
         bool CheckMaxRange()
         {
             // (플레이어 포지션, 훅 포지션)
-            Debug.Log(Vector2.Distance(hookController.playerPosition, hookController.transform.position));
-            if (Vector2.Distance(hookController.playerPosition, hookController.transform.position) > maxRange) { return true; }
+            if (Vector2.Distance(hookController.playerPosition, hookController.transform.position) >= maxRange) { return true; }
             else { return false; }
         }
-
-        private void OnTriggerEnter2D(Collider2D collision)
+        public void HandleCollisionWithObstacle(Vector2 collisionPoint)
         {
-            if (collision.CompareTag("Obstacles"))
-            {
-                Debug.Log("부딪힘");
-            }
-
-            if (collision.CompareTag("FinishObject"))
-            {
-                GameManager.Instance.LoadSceneWithName("BossScene");
-            }
+            hookController.transform.position = collisionPosition = collisionPoint;
+            hookController.hookStateContext.ChangeState(hookController.attachState);
         }
     }
 }

@@ -5369,17 +5369,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1718378754}
     m_Modifications:
-    - target: {fileID: -5139723253292212263, guid: 7dfe232286835fa409322f245dcc7f9c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2718536928029223052, guid: 7dfe232286835fa409322f245dcc7f9c, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2718536928029223052, guid: 7dfe232286835fa409322f245dcc7f9c, type: 3}
       propertyPath: m_Distance
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2718536928029223052, guid: 7dfe232286835fa409322f245dcc7f9c, type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -5489,7 +5485,7 @@ PrefabInstance:
       addedObject: {fileID: 1899008621}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5721295519944856190, guid: 7dfe232286835fa409322f245dcc7f9c, type: 3}
-      insertIndex: 7
+      insertIndex: 6
       addedObject: {fileID: 705320346}
   m_SourcePrefab: {fileID: 100100000, guid: 7dfe232286835fa409322f245dcc7f9c, type: 3}
 --- !u!1 &1016878225

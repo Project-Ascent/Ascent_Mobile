@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     InputAction moveAction, clickAction;
     PlayerAnimation playerAnimation;
     private float movementSpeed = 0.08f;
+    private bool canMove = true;
+    private float currentRotationY = 0;
 
     private void Awake()
     {
@@ -17,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
         moveAction = action.Player.Move;
         moveAction.Enable();
         moveAction.started += OnMoveStarted;
+        moveAction.performed += OnMovePerformed;
         moveAction.canceled += OnMoveCanceled;
 
         clickAction = action.Player.Click;
@@ -28,16 +31,9 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMoveStarted(InputAction.CallbackContext context)
     {
+        if (!canMove) return;
         Vector2 inputVector = context.ReadValue<Vector2>();
-        if (inputVector.x < 0 && transform.rotation.y == 0)
-        {
-            Rotate(180);
-        }
-
-        if (inputVector.x > 0 && transform.rotation.y != 0)
-        {
-            Rotate(0);
-        }
+        ChangePlayerRotate(inputVector.x);
 
         if (playerAnimation != null)
         {
@@ -45,8 +41,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void OnMovePerformed(InputAction.CallbackContext context) {}
+
     void OnMoveCanceled(InputAction.CallbackContext context)
     {
+        if (!canMove) return;
         if (playerAnimation != null)
         {
             playerAnimation.PlayIdleAnimation();
@@ -68,22 +67,60 @@ public class PlayerMovement : MonoBehaviour
 
     void Move(float x)
     {
-        Vector3 moveDirection = new Vector3(
-                x * movementSpeed, 0, 0);
-        // this.transform.Translate(moveDirection, Space.Self); // 플레이어의 로컬 좌표 기준으로 이동
-        this.transform.Translate(moveDirection, Space.World); // 월드 좌표 기준으로 이동
+        Vector3 moveDirection = new Vector3(x * movementSpeed, 0, 0);
+        this.transform.Translate(moveDirection, Space.World);
     }
 
-    void Rotate(float yRotation)
+    void ChangePlayerRotate(float keyboardVectorX)
     {
-        Vector3 newRotation = new Vector3(0, yRotation, 0);
-        this.transform.eulerAngles = newRotation;
-    }
+        if (keyboardVectorX < 0) // 왼쪽 이동 + 오른쪽 바라봄
+        {
+            currentRotationY = 180;
+        }
+        if (keyboardVectorX > 0) // 오른쪽 이동 + 왼쪽 바라봄
+        {
+            currentRotationY = 0;
+        }
 
+        if (currentRotationY != transform.eulerAngles.y)
+        {
+            Vector3 newRotation = new Vector3(0, currentRotationY, 0);
+            transform.eulerAngles = newRotation;
+        }
+    }
 
     void Update()
     {
-        Vector2 keyboardVector = moveAction.ReadValue<Vector2>();
-        Move(keyboardVector.x);
+        if (canMove)
+        {
+            Vector2 keyboardVector = moveAction.ReadValue<Vector2>();
+            Move(keyboardVector.x);
+        }
+    }
+
+    public void SetCanMove(bool canMove)
+    {
+        this.canMove = canMove;
+        ForceAnimation(canMove);
+    }
+
+    public void ForceAnimation(bool canMove)
+    {
+        if (!canMove)
+        {
+            playerAnimation.PlayIdleAnimation();
+        }
+        if (canMove)
+        {
+            if (moveAction.ReadValue<Vector2>().x == 0)
+            {
+                playerAnimation.PlayIdleAnimation();
+            }
+            else
+            {
+                playerAnimation.PlayWalkAnimation();
+                ChangePlayerRotate(moveAction.ReadValue<Vector2>().x);
+            }
+        }
     }
 }
