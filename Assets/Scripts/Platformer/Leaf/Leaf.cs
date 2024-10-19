@@ -9,15 +9,7 @@ public class Leaf : MonoBehaviour
     private float disappearTime = 2f;
     private float appearTime = 3f;
     private bool isCollision = false;
-    void Start()
-    {
-        
-    }
 
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("PlayerHook"))
