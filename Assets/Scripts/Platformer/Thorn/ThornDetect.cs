@@ -9,7 +9,7 @@ public class ThornDetect : MonoBehaviour
     public float damage;
     public bool isDamaged = false;
     public Life life;
-    AudioSource pDamage;
+    AudioSource damagedSound;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,12 +22,12 @@ public class ThornDetect : MonoBehaviour
             {
                 if (scene.name == "TutorialScene")
                 {
-                    pDamage.Play();
+                    damagedSound.Play();
                     Invoke("ChangeDamaged", 0.1f);
                 }
                 else
                 {
-                    pDamage.Play();
+                    damagedSound.Play();
                     Invoke("ChangeDamaged", 0.1f);
                     Invoke("ResetDamageState", 3f);
                 }
@@ -51,7 +51,8 @@ public class ThornDetect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pDamage = GameObject.Find("Thornsound").GetComponent<AudioSource>();
+        // 여기서부터 리팩 들어가면 됩니다.
+        damagedSound = GameObject.Find("Thornsound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
