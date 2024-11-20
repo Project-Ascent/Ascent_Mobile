@@ -38,10 +38,5 @@ namespace HookControlState
         {
             hookController.GetComponent<DistanceJoint2D>().enabled = false;
         }
-
-        void Start()
-        {
-        }
-
     }
 }
