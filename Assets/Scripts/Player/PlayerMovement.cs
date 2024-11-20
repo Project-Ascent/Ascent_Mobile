@@ -9,9 +9,9 @@ public class PlayerMovement : MonoBehaviour
     PlayerInputAction action;
     InputAction moveAction, clickAction;
     PlayerAnimation playerAnimation;
-    private float movementSpeed = 0.08f;
+    private float movementSpeed = 5f;
     private bool canMove = true;
-    private float currentRotationY = 0;
+    private float currentRotationY = 0f;
 
     private void Awake()
     {
@@ -67,19 +67,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Move(float x)
     {
-        Vector3 moveDirection = new Vector3(x * movementSpeed, 0, 0);
-        this.transform.Translate(moveDirection, Space.World);
+        Vector3 moveDirection = new Vector3(x, 0, 0);
+        transform.Translate(moveDirection * movementSpeed * Time.deltaTime , Space.World);
     }
 
     void ChangePlayerRotate(float keyboardVectorX)
     {
-        if (keyboardVectorX < 0) // ¿ÞÂÊ ÀÌµ¿ + ¿À¸¥ÂÊ ¹Ù¶óº½
+        if (keyboardVectorX < 0f) // ¿ÞÂÊ ÀÌµ¿ + ¿À¸¥ÂÊ ¹Ù¶óº½
         {
-            currentRotationY = 180;
+            currentRotationY = 180f;
         }
-        if (keyboardVectorX > 0) // ¿À¸¥ÂÊ ÀÌµ¿ + ¿ÞÂÊ ¹Ù¶óº½
+        if (keyboardVectorX > 0f) // ¿À¸¥ÂÊ ÀÌµ¿ + ¿ÞÂÊ ¹Ù¶óº½
         {
-            currentRotationY = 0;
+            currentRotationY = 0f;
         }
 
         if (currentRotationY != transform.eulerAngles.y)
