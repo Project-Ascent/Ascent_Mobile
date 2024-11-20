@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem.XR.Haptics;
 
@@ -7,16 +8,20 @@ namespace HookControlState
     {
         public HookState idleState, fireState, attachState;
         public HookStateContext hookStateContext;
-        private static float launchSpeed = 15f;
-        private bool isMouseClicked = false;
-
-        public LineRenderer lineRenderer;
-        public Vector3 playerPosition; // 플레이어의 포지션(World)
-        public Vector3 goalPosition; // 마우스로 클릭한 지점의 포지션(World)
-
-        public delegate void CollisionHandler(Collider2D collision);
-        public event CollisionHandler OnCollision;
         public GameObject playerGO;
+
+        private const float launchSpeed = 15f;
+        public float LaunchSpeed => launchSpeed; 
+        public bool IsMouseClicked { get; set; } = false;
+
+        public LineRenderer LineRenderer { get; private set; }
+        public Vector3 PlayerPosition { get; private set; } // 플레이어의 포지션(World)
+        public Vector3 GoalPosition { get; private set; } // 마우스로 클릭한 지점의 포지션(World)
+
+        void OnEnable()
+        {
+            PlayerMovement.MouseClickEvent += OnMouseClick;
+        }
 
         void Start()
         {
@@ -30,7 +35,7 @@ namespace HookControlState
 
         void Update()
         {
-            playerPosition = playerGO.transform.position;
+            PlayerPosition = playerGO.transform.position;
             UpdateLineRenderer();
             if (hookStateContext.currentState != null)
             {
@@ -38,44 +43,6 @@ namespace HookControlState
             }
         }
 
-        public void UpdateLineRenderer()
-        {
-            if (lineRenderer != null)
-            {
-                lineRenderer.SetPosition(0, playerPosition);
-                lineRenderer.SetPosition(1, transform.position);
-            }
-        }
-
-        void OnMouseClick(Vector3 mousePosition)
-        {
-            isMouseClicked = true;
-            goalPosition = mousePosition;
-        }
-
-        void OnEnable()
-        {
-            PlayerMovement.MouseClickEvent += OnMouseClick;
-        }
-
-        void InitLineRendererAndHook()
-        {
-            lineRenderer.positionCount = 2;
-            lineRenderer.endWidth = lineRenderer.startWidth = 0.05f;
-            lineRenderer.useWorldSpace = true;
-            lineRenderer.SetPosition(0, playerPosition); // Player의 포지션
-            lineRenderer.SetPosition(1, transform.position);
-            SetHookEnabled(false);
-        }
-
-        public void SetHookEnabled(bool val)
-        {
-            gameObject.GetComponent<SpriteRenderer>().enabled = val;
-            gameObject.GetComponent<BoxCollider2D>().enabled = val;
-        }
-        public float GetLaunchSpeed() { return launchSpeed; }
-        public bool GetIsMouseClicked() { return isMouseClicked; }
-        public void SetIsMouseClicked(bool val) { isMouseClicked = val; }
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Obstacles"))
@@ -98,6 +65,41 @@ namespace HookControlState
             {
                 GameManager.Instance.LoadSceneWithName("BossScene");
             }
+        }
+
+        private void InitLineRendererAndHook()
+        {
+            LineRenderer = GetComponentsInChildren<LineRenderer>().FirstOrDefault();
+            if (LineRenderer != null)
+            {
+                LineRenderer.positionCount = 2;
+                LineRenderer.endWidth = LineRenderer.startWidth = 0.05f;
+                LineRenderer.useWorldSpace = true;
+                LineRenderer.SetPosition(0, PlayerPosition); // Player의 포지션
+                LineRenderer.SetPosition(1, transform.position);
+            }
+            SetHookEnabled(false);
+        }
+
+        public void SetHookEnabled(bool val)
+        {
+            gameObject.GetComponent<SpriteRenderer>().enabled = val;
+            gameObject.GetComponent<BoxCollider2D>().enabled = val;
+        }
+
+        public void UpdateLineRenderer()
+        {
+            if (LineRenderer != null)
+            {
+                LineRenderer.SetPosition(0, PlayerPosition);
+                LineRenderer.SetPosition(1, transform.position);
+            }
+        }
+
+        private void OnMouseClick(Vector3 mousePosition)
+        {
+            IsMouseClicked = true;
+            GoalPosition = mousePosition;
         }
     }
 }

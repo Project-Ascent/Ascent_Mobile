@@ -17,19 +17,19 @@ namespace HookControlState
                 hookController = controller;
             }
             RetractHook();
-            hookController.SetIsMouseClicked(false);
+            hookController.IsMouseClicked = false;
             Debug.Log("HookIdleState 진입");
         }
 
         public void Update()
         {
             // hookPosition이 항상 playerPosition이어야 함.
-            hookController.transform.position = hookController.playerPosition;
+            hookController.transform.position = hookController.PlayerPosition;
 
            // 마우스 좌클릭 받으면 HookFire로 이동
-           if (hookController.GetIsMouseClicked())
+           if (hookController.IsMouseClicked)
            {
-                hookController.hookStateContext.ChangeState(hookController.fireState, hookController.goalPosition);
+                hookController.hookStateContext.ChangeState(hookController.fireState, hookController.GoalPosition);
 
            }
         }
@@ -41,8 +41,8 @@ namespace HookControlState
 
         void RetractHook()
         {
-            hookController.transform.position = Vector2.MoveTowards(hookController.transform.position, hookController.playerPosition, Time.deltaTime * 1000);
-            if (Vector2.Distance(hookController.playerPosition, hookController.transform.position) < 0.1f)
+            hookController.transform.position = Vector2.MoveTowards(hookController.transform.position, hookController.PlayerPosition, Time.deltaTime * 1000);
+            if (Vector2.Distance(hookController.PlayerPosition, hookController.transform.position) < 0.1f)
             {
                 hookController.GetComponent<DistanceJoint2D>().enabled = false;
                 hookController.SetHookEnabled(false);

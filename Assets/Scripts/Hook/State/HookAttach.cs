@@ -20,17 +20,15 @@ namespace HookControlState
             {
                 joint.enabled = true;
             }
-            hookController.SetIsMouseClicked(false);
+            hookController.IsMouseClicked = false;
             Debug.Log("HookAttachState ¡¯¿‘");
         }
 
         public void Update()
         {
-            Debug.Log(hookController.playerPosition);
-            Debug.Log(hookController.transform.position);
-            hookController.lineRenderer.SetPosition(0, hookController.playerPosition);
-            hookController.lineRenderer.SetPosition(1, hookController.transform.position);
-            if (hookController.GetIsMouseClicked())
+            hookController.LineRenderer.SetPosition(0, hookController.PlayerPosition);
+            hookController.LineRenderer.SetPosition(1, hookController.transform.position);
+            if (hookController.IsMouseClicked)
             {
                 hookController.hookStateContext.ChangeState(hookController.idleState);
             }

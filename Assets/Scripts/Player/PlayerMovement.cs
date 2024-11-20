@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
     InputAction moveAction, clickAction;
     PlayerAnimation playerAnimation;
     private float movementSpeed = 5f;
-    private bool canMove = true;
     private float currentRotationY = 0f;
+    public bool CanMove { get; set; } = true;
 
     private void Awake()
     {
@@ -29,9 +29,18 @@ public class PlayerMovement : MonoBehaviour
         playerAnimation = GetComponent<PlayerAnimation>();
     }
 
+    void Update()
+    {
+        if (CanMove)
+        {
+            Vector2 keyboardVector = moveAction.ReadValue<Vector2>();
+            Move(keyboardVector.x);
+        }
+    }
+
     void OnMoveStarted(InputAction.CallbackContext context)
     {
-        if (!canMove) return;
+        if (!CanMove) return;
         Vector2 inputVector = context.ReadValue<Vector2>();
         ChangePlayerRotate(inputVector.x);
 
@@ -45,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMoveCanceled(InputAction.CallbackContext context)
     {
-        if (!canMove) return;
+        if (!CanMove) return;
         if (playerAnimation != null)
         {
             playerAnimation.PlayIdleAnimation();
@@ -87,21 +96,6 @@ public class PlayerMovement : MonoBehaviour
             Vector3 newRotation = new Vector3(0, currentRotationY, 0);
             transform.eulerAngles = newRotation;
         }
-    }
-
-    void Update()
-    {
-        if (canMove)
-        {
-            Vector2 keyboardVector = moveAction.ReadValue<Vector2>();
-            Move(keyboardVector.x);
-        }
-    }
-
-    public void SetCanMove(bool canMove)
-    {
-        this.canMove = canMove;
-        ForceAnimation(canMove);
     }
 
     public void ForceAnimation(bool canMove)

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace HookControlState
@@ -11,7 +12,17 @@ namespace HookControlState
         private Vector2 targetPosition;
         private Vector2 mouseDirection;
         private Vector2 collisionPosition;
-        private float maxRange = 10f;
+        private const float maxRange = 10f;
+        private float curFireMaxRange;
+
+        public void Update()
+        {
+            MoveHookTowardsTarget();
+            if (CheckMaxRange())
+            {
+                hookController.hookStateContext.ChangeState(hookController.idleState);
+            }
+        }
 
         public void Enter(HookController controller)
         {
@@ -19,7 +30,7 @@ namespace HookControlState
             {
                 hookController = controller;
             }
-            hookController.SetIsMouseClicked(false);
+            hookController.IsMouseClicked = false;
         }
 
 
@@ -32,23 +43,14 @@ namespace HookControlState
             targetPosition = Camera.main.ScreenToWorldPoint(clickPosition);
             hookController.gameObject.SetActive(true);
             hookController.SetHookEnabled(true);
-            maxRange = Math.Min(10f, Vector2.Distance(hookController.playerPosition, targetPosition));
-            hookController.playerGO.GetComponent<PlayerMovement>().SetCanMove(false);
+            curFireMaxRange = Math.Min(maxRange, Vector2.Distance(hookController.PlayerPosition, targetPosition));
+            hookController.playerGO.GetComponent<PlayerMovement>().CanMove = false;
             // Debug.Log("HookFireState 진입");
-        }
-
-        public void Update()
-        {
-            MoveHookTowardsTarget();
-            if (CheckMaxRange())
-            {
-                hookController.hookStateContext.ChangeState(hookController.idleState);
-            }
         }
 
         public void Exit()
         {
-            hookController.playerGO.GetComponent<PlayerMovement>().SetCanMove(true);
+            hookController.playerGO.GetComponent<PlayerMovement>().CanMove = true;
             hookController.transform.position = collisionPosition;
             // Debug.Log("HookFire Exit 함수 호출");
         }
@@ -62,14 +64,13 @@ namespace HookControlState
             hookController.transform.position = Vector2.MoveTowards
                 (worldHookPosition,
                 targetPosition, 
-                Time.deltaTime * hookController.GetLaunchSpeed());
+                Time.deltaTime * hookController.LaunchSpeed);
         }
 
         bool CheckMaxRange()
         {
             // (플레이어 포지션, 훅 포지션)
-            if (Vector2.Distance(hookController.playerPosition, hookController.transform.position) >= maxRange) { return true; }
-            else { return false; }
+            return Vector2.Distance(hookController.PlayerPosition, hookController.transform.position) >= curFireMaxRange;
         }
         public void HandleCollisionWithObstacle(Vector2 collisionPoint)
         {
