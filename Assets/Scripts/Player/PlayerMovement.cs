@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     PlayerAnimation playerAnimation;
     private float movementSpeed = 5f;
     private float currentRotationY = 0f;
-    public bool CanMove { get; set; } = true;
 
     private void Awake()
     {
@@ -31,16 +30,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (CanMove)
-        {
-            Vector2 keyboardVector = moveAction.ReadValue<Vector2>();
-            Move(keyboardVector.x);
-        }
+        Vector2 keyboardVector = moveAction.ReadValue<Vector2>();
+        Move(keyboardVector.x);
     }
 
     void OnMoveStarted(InputAction.CallbackContext context)
     {
-        if (!CanMove) return;
         Vector2 inputVector = context.ReadValue<Vector2>();
         ChangePlayerRotate(inputVector.x);
 
@@ -54,7 +49,6 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMoveCanceled(InputAction.CallbackContext context)
     {
-        if (!CanMove) return;
         if (playerAnimation != null)
         {
             playerAnimation.PlayIdleAnimation();

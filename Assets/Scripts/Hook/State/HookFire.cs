@@ -33,13 +33,11 @@ namespace HookControlState
             targetPosition = Camera.main.ScreenToWorldPoint(hookController.GoalPosition);
             hookController.gameObject.SetActive(true);
             hookController.SetHookEnabled(true);
-            hookController.playerGO.GetComponent<PlayerMovement>().CanMove = false;
             Debug.Log("HookFireState 진입");
         }
 
         public void Exit()
         {
-            hookController.playerGO.GetComponent<PlayerMovement>().CanMove = true;
             hookController.transform.position = collisionPosition;
             // Debug.Log("HookFire Exit 함수 호출");
         }
