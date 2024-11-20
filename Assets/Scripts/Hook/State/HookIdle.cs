@@ -29,8 +29,7 @@ namespace HookControlState
            // 마우스 좌클릭 받으면 HookFire로 이동
            if (hookController.IsMouseClicked)
            {
-                hookController.hookStateContext.ChangeState(hookController.fireState, hookController.GoalPosition);
-
+                hookController.hookStateContext.ChangeState(hookController.fireState);
            }
         }
 

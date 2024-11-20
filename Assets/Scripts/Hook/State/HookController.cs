@@ -47,7 +47,6 @@ namespace HookControlState
         {
             if (other.CompareTag("Obstacles"))
             {
-                Debug.Log("장애물에 부딪힘");
                 // currentState가 HookFireState인지 확인하고 메서드 호출
                 if (hookStateContext.currentState is HookFireState)
                 {

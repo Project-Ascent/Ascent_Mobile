@@ -40,12 +40,5 @@ namespace HookControlState
             currentState = nextState;
             currentState.Enter(hookController);
         }
-
-        public void ChangeState(HookState nextState, Vector2 mousePosition)
-        {
-            currentState.Exit();
-            currentState = nextState;
-            (currentState as HookFireState).Enter(hookController, mousePosition);
-        }
     }
 }
