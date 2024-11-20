@@ -66,6 +66,18 @@ namespace HookControlState
             }
         }
 
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag("Obstacles"))
+            {
+                Leaf leaf = other.gameObject.GetComponent<Leaf>();
+                if (leaf != null)
+                {
+                    leaf.IsAttachedThisLeaf = false;
+                }
+            }
+        }
+
         private void InitLineRendererAndHook()
         {
             LineRenderer = GetComponentsInChildren<LineRenderer>().FirstOrDefault();
