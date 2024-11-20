@@ -33,7 +33,7 @@ namespace HookControlState
             hookController.gameObject.SetActive(true);
             hookController.SetHookEnabled(true);
             maxRange = Math.Min(10f, Vector2.Distance(hookController.playerPosition, targetPosition));
-            hookController.transform.parent.GetComponent<PlayerMovement>().SetCanMove(false);
+            hookController.playerGO.GetComponent<PlayerMovement>().SetCanMove(false);
             // Debug.Log("HookFireState 진입");
         }
 
@@ -48,7 +48,7 @@ namespace HookControlState
 
         public void Exit()
         {
-            hookController.transform.parent.GetComponent<PlayerMovement>().SetCanMove(true);
+            hookController.playerGO.GetComponent<PlayerMovement>().SetCanMove(true);
             hookController.transform.position = collisionPosition;
             // Debug.Log("HookFire Exit 함수 호출");
         }
@@ -63,7 +63,6 @@ namespace HookControlState
                 (worldHookPosition,
                 targetPosition, 
                 Time.deltaTime * hookController.GetLaunchSpeed());
-            CheckMaxRange();
         }
 
         bool CheckMaxRange()

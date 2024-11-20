@@ -11,12 +11,12 @@ namespace HookControlState
         private bool isMouseClicked = false;
 
         public LineRenderer lineRenderer;
-        public Vector3 playerPosition; // 부모 오브젝트인 플레이어의 포지션(World)
+        public Vector3 playerPosition; // 플레이어의 포지션(World)
         public Vector3 goalPosition; // 마우스로 클릭한 지점의 포지션(World)
 
         public delegate void CollisionHandler(Collider2D collision);
         public event CollisionHandler OnCollision;
-
+        public GameObject playerGO;
 
         void Start()
         {
@@ -30,7 +30,7 @@ namespace HookControlState
 
         void Update()
         {
-            playerPosition = transform.parent.position;
+            playerPosition = playerGO.transform.position;
             UpdateLineRenderer();
             if (hookStateContext.currentState != null)
             {
@@ -76,16 +76,17 @@ namespace HookControlState
         public float GetLaunchSpeed() { return launchSpeed; }
         public bool GetIsMouseClicked() { return isMouseClicked; }
         public void SetIsMouseClicked(bool val) { isMouseClicked = val; }
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (collision.CompareTag("Obstacles"))
+            if (other.CompareTag("Obstacles"))
             {
                 Debug.Log("장애물에 부딪힘");
                 // currentState가 HookFireState인지 확인하고 메서드 호출
                 if (hookStateContext.currentState is HookFireState)
                 {
+                    Vector2 collisionPoint = other.ClosestPoint(transform.position);
                     (hookStateContext.currentState as HookFireState).
-                        HandleCollisionWithObstacle(collision.transform.position);
+                        HandleCollisionWithObstacle(collisionPoint);
                 }
                 else
                 {
@@ -93,7 +94,7 @@ namespace HookControlState
                 }
             }
 
-            if (collision.CompareTag("FinishObject"))
+            if (other.CompareTag("FinishObject"))
             {
                 GameManager.Instance.LoadSceneWithName("BossScene");
             }
