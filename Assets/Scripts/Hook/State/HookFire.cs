@@ -10,13 +10,13 @@ namespace HookControlState
     {
         private HookController hookController;
         private Vector2 targetPosition;
-        private Vector2 mouseDirection;
         private Vector2 collisionPosition;
         private const float maxRange = 10f;
         private float curFireMaxRange;
 
         public void Update()
         {
+            curFireMaxRange = Math.Min(maxRange, Vector2.Distance(hookController.PlayerPosition, targetPosition));
             MoveHookTowardsTarget();
             if (CheckMaxRange())
             {
@@ -30,22 +30,11 @@ namespace HookControlState
             {
                 hookController = controller;
             }
-            hookController.IsMouseClicked = false;
-        }
-
-
-        public void Enter(HookController controller, Vector2 clickPosition)
-        {
-            if (!hookController)
-            {
-                hookController = controller;
-            }
-            targetPosition = Camera.main.ScreenToWorldPoint(clickPosition);
+            targetPosition = Camera.main.ScreenToWorldPoint(hookController.GoalPosition);
             hookController.gameObject.SetActive(true);
             hookController.SetHookEnabled(true);
-            curFireMaxRange = Math.Min(maxRange, Vector2.Distance(hookController.PlayerPosition, targetPosition));
             hookController.playerGO.GetComponent<PlayerMovement>().CanMove = false;
-            // Debug.Log("HookFireState 진입");
+            Debug.Log("HookFireState 진입");
         }
 
         public void Exit()
@@ -72,6 +61,7 @@ namespace HookControlState
             // (플레이어 포지션, 훅 포지션)
             return Vector2.Distance(hookController.PlayerPosition, hookController.transform.position) >= curFireMaxRange;
         }
+
         public void HandleCollisionWithObstacle(Vector2 collisionPoint)
         {
             hookController.transform.position = collisionPosition = collisionPoint;
