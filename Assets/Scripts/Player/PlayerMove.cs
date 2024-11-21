@@ -30,7 +30,7 @@ public class PlayerMove : MonoBehaviour
         grappling = GetComponent<GrapplingHook>();
 
         UIButtonManager ui = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIButtonManager>();
-        ui.init();
+        ui.Init();
     }
 
     private void FixedUpdate()

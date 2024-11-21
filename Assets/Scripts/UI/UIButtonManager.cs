@@ -23,7 +23,7 @@ public class UIButtonManager : MonoBehaviour
         
     }
 
-    public void init()
+    public void Init()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         ps = player.GetComponent<PlayerMove>();
