@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class HPManager : MonoBehaviour
 {
-    public static HPManager Instance {  get; private set; }
-    private int maxHP = 3;
-    public int CurHP { get; private set; }
+    public static HPManager Instance { get; private set; }
+    private UILifeManager uiLifeManager;
+    public int MaxHP { get; private set; } = 3;
+    private int curHP;
     public bool IsInvincible { get; set; } = false;
     void Awake()
     {
@@ -17,15 +18,16 @@ public class HPManager : MonoBehaviour
             return;
         }
         Instance = this;
-        CurHP = maxHP;
+        curHP = MaxHP;
+        uiLifeManager = FindObjectOfType<UILifeManager>();
         DontDestroyOnLoad(gameObject);
     }
 
     public void DecreaseHP(int damage)
     {
-        CurHP = Math.Max(0, CurHP - damage);
-        Debug.Log("ÇöÀç HP : " + CurHP);
-        if (CurHP == 0)
+        curHP = Math.Max(0, curHP - damage);
+        uiLifeManager?.UpdateLifeUI(curHP);
+        if (curHP == 0)
         {
             GameManager.Instance.LoadSceneWithName("GameOverScene");
         }
@@ -33,6 +35,7 @@ public class HPManager : MonoBehaviour
 
     public void IncreaseHP(int amount)
     {
-        CurHP = Math.Min(maxHP, CurHP + amount);
+        curHP = Math.Min(MaxHP, curHP + amount);
+        uiLifeManager?.UpdateLifeUI(curHP);
     }
 }
