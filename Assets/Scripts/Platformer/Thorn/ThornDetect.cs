@@ -7,57 +7,52 @@ public class ThornDetect : MonoBehaviour
 {
     public static ThornDetect td;
     public float damage;
-    public bool isDamaged = false;
-    public Life life;
+    private bool isDamaged = false;
+    private float invincibleTime = 3f;
+    private Life life;
     AudioSource damagedSound;
+
+    void Start()
+    {
+        // 사운드매니저가 필요할거 같은데 따로
+        damagedSound = GameObject.Find("Thornsound").GetComponent<AudioSource>();
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.name=="Player")
+        if(other.CompareTag("Player"))
         {
-            Scene scene = SceneManager.GetActiveScene();
             life = other.gameObject.GetComponent<Life>();
-
-            if (life != null && !life.isDamaged)
+            if (life != null && !life.IsDamaged)
             {
-                if (scene.name == "TutorialScene")
+                StartCoroutine(ApplyDamage());
+                if (damagedSound != null)
                 {
                     damagedSound.Play();
-                    Invoke("ChangeDamaged", 0.1f);
-                }
-                else
-                {
-                    damagedSound.Play();
-                    Invoke("ChangeDamaged", 0.1f);
-                    Invoke("ResetDamageState", 3f);
                 }
             }
         }
-       
+    }
+
+    IEnumerator ApplyDamage()
+    {
+        life.amount -= damage;
+        life.IsDamaged = true;
+        yield return new WaitForSeconds(invincibleTime);
+        life.IsDamaged = false;
     }
 
     void ChangeDamaged()
     {
-        if (!life.isDamaged)
+        if (!life.IsDamaged)
         {
             life.amount -= damage;
-            life.isDamaged = true;
+            life.IsDamaged = true;
         }
     }
     void ResetDamageState()
     {
-        life.isDamaged = false;
+        life.IsDamaged = false;
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        // 여기서부터 리팩 들어가면 됩니다.
-        damagedSound = GameObject.Find("Thornsound").GetComponent<AudioSource>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
