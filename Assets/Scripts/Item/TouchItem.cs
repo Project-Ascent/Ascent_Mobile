@@ -74,13 +74,8 @@ public class TouchItem : MonoBehaviour
         if (item.beans)
         {
 
-            
-            Life life = GameObject.Find("Player").GetComponent<Life>();
-            if (life.amount < 3)
-            {
-                item.beans = false;
-                life.amount++;
-            }
+            HPManager.Instance.IncreaseHP(1);
+            item.beans = false;
         }
         else if (item.airballoon)
         {

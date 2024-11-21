@@ -3330,6 +3330,7 @@ Transform:
   m_Children:
   - {fileID: 1870416405}
   - {fileID: 1034010353}
+  - {fileID: 792556632}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &660753243
@@ -4249,6 +4250,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7942628402696150583, guid: 5f5dd3bec27346c4aa25ea36dad03e43, type: 3}
   m_PrefabInstance: {fileID: 757273904}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &792556631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 792556632}
+  - component: {fileID: 792556633}
+  m_Layer: 0
+  m_Name: GameManagerForDebug
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &792556632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792556631}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 625200765}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &792556633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792556631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013a72bce5d91a74f92727d4d1bf5198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &795149878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10378,6 +10423,7 @@ GameObject:
   - component: {fileID: 1870416404}
   - component: {fileID: 1870416406}
   - component: {fileID: 1870416407}
+  - component: {fileID: 1870416408}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Managers
@@ -10438,9 +10484,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3793fb5fbd9d7444baed8b5d31fd53aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: {fileID: 0}
   checkDamaged: 0
   item: ' '
+--- !u!114 &1870416408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870416403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d507225ddc6a194f806fbd5ef475667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeImgArr:
+  - {fileID: 1598172303}
+  - {fileID: 1169541958}
+  - {fileID: 1679632741}
 --- !u!1 &1880295845
 GameObject:
   m_ObjectHideFlags: 0

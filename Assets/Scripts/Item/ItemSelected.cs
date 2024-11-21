@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class ItemSelected : MonoBehaviour
 {
     public static ItemSelected IS;
-    public Life life;
     public bool checkDamaged;
     public string item = " ";
     private void Awake()
@@ -63,19 +62,14 @@ public class ItemSelected : MonoBehaviour
         if (ItemM.item.beans)
         {
             item = "b";
-            Life life = GameObject.Find("Player").GetComponent<Life>();
-            if (life.amount < 3)
+            HPManager.Instance.IncreaseHP(1);
+            ItemM.item.beans = false;
+            if (SceneManager.GetActiveScene().name == "TutorialScene")
             {
-                ItemM.item.beans = false;
-                life.amount++;
-
-                if (SceneManager.GetActiveScene().name == "TutorialScene")
-                {
-                    TutorialManager tm;
-                    tm = tm = GameObject.Find("TutorialManager").GetComponent<TutorialManager>();
-                    tm.missionCount += 1.0f;
-                    tm.checkMissionCount();
-                }
+                TutorialManager tm;
+                tm = tm = GameObject.Find("TutorialManager").GetComponent<TutorialManager>();
+                tm.missionCount += 1.0f;
+                tm.checkMissionCount();
             }
         }
         else if (ItemM.item.airballoon)
