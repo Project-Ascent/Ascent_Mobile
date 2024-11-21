@@ -9,7 +9,7 @@ public class Thorn : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !HPManager.Instance.GetIsInvincible())
+        if (other.CompareTag("Player") && !HPManager.Instance.IsInvincible)
         {
             ApplyDamage();
             StartCoroutine(ApplyInvincibility(invincibleTime));
@@ -23,8 +23,8 @@ public class Thorn : MonoBehaviour
 
     private IEnumerator ApplyInvincibility(float invincibleTime)
     {
-        HPManager.Instance.SetIsInvincible(true);
+        HPManager.Instance.IsInvincible = true;
         yield return new WaitForSeconds(invincibleTime);
-        HPManager.Instance.SetIsInvincible(false);
+        HPManager.Instance.IsInvincible = false;
     }
 }
