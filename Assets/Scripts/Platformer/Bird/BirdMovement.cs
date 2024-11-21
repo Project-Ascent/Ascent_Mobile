@@ -6,9 +6,9 @@ public class BirdMovement : MonoBehaviour
 {
     [SerializeField]
     private bool isMovementDirectionUpDown = true;
-
-    private float movedDistance = 0f; // 움직인 거리를 나타내는 변수
-    private float targetDistance = 8f; // 목표로 하는 이동 거리
+    [SerializeField]
+    private float maxDistance = 8f; // 최대 이동 거리
+    private float movedDistance = 0f; // 움직인 거리
     private float delayAfterChangeDirection = 0.5f;
 
     void Start()
@@ -23,7 +23,6 @@ public class BirdMovement : MonoBehaviour
         }
     }
 
-
     IEnumerator MoveUpDown()
     {
         int movementDirection = 1;
@@ -32,20 +31,21 @@ public class BirdMovement : MonoBehaviour
             transform.Translate(Vector3.up * movementDirection * Time.deltaTime);
             movedDistance += Time.deltaTime;
 
-            if (targetDistance <= movedDistance)
+            if (maxDistance <= movedDistance)
             {
                 if (movementDirection == 1)
                 {
-                    transform.localEulerAngles = new Vector3(0, 0, 0);
+                    transform.localEulerAngles = new Vector3(0, -180, 0);
                 }
                 else
                 {
-                    transform.localEulerAngles = new Vector3(0, -180, 0);
+                    transform.localEulerAngles = new Vector3(0, 0, 0);
                 }
                 movementDirection *= -1;
                 movedDistance = 0f;
                 yield return new WaitForSeconds(delayAfterChangeDirection);
             }
+            yield return null;
         }
     }
 
@@ -54,22 +54,23 @@ public class BirdMovement : MonoBehaviour
         int movementDirection = 1;
         while (true)
         {
-            transform.Translate(Vector3.left * movementDirection * Time.deltaTime);
+            transform.Translate(Vector3.left * Time.deltaTime);
             movedDistance += Time.deltaTime;
-            if (targetDistance <= movedDistance)
+            if (maxDistance <= movedDistance)
             {
                 if (movementDirection == 1)
                 {
-                    transform.localEulerAngles = new Vector3(0, 0, 0);
+                    transform.localEulerAngles = new Vector3(0, -180, 0);
                 }
                 else
                 {
-                    transform.localEulerAngles = new Vector3(0, -180, 0);
+                    transform.localEulerAngles = new Vector3(0, 0, 0);
                 }
                 movementDirection *= -1;
                 movedDistance = 0f;
                 yield return new WaitForSeconds(delayAfterChangeDirection);
             }
+            yield return null;
         }
     }
 }

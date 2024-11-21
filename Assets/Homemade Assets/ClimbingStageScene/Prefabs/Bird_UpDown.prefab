@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3350673536608434054}
   - component: {fileID: 3350673536608434055}
   - component: {fileID: 3350673536608434072}
-  - component: {fileID: 5745817433983314742}
   - component: {fileID: 8260534584467297055}
+  - component: {fileID: 5745817433983314742}
   - component: {fileID: 5069154673168356674}
   m_Layer: 0
   m_Name: Bird_UpDown
@@ -109,19 +109,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5745817433983314742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3350673536608434073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d814a7e671ca5d42a07a4daad74311f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAttachedOnBird: 0
 --- !u!68 &8260534584467297055
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -172,6 +159,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &5745817433983314742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3350673536608434073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d814a7e671ca5d42a07a4daad74311f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAttachedOnBird: 0
 --- !u!114 &5069154673168356674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,4 +184,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27cb3fc1bfca6684f96ee5fd73fc4b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAttached: 0
+  isMovementDirectionUpDown: 1

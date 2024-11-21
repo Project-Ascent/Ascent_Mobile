@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1447484171512840791}
   - component: {fileID: 1233371132463985113}
   - component: {fileID: 429053241486337013}
-  - component: {fileID: 2261852267723816683}
   - component: {fileID: 9162592351300738921}
   - component: {fileID: 7462403894715394420}
+  - component: {fileID: 3651284321181176880}
   m_Layer: 0
   m_Name: Bird_LeftRight
   m_TagString: Obstacles
@@ -109,19 +109,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2261852267723816683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6945843044463552921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa8468bff53b96e4ebfd7a287bdf340f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAttached: 0
 --- !u!68 &9162592351300738921
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -185,3 +172,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAttachedOnBird: 0
+--- !u!114 &3651284321181176880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6945843044463552921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27cb3fc1bfca6684f96ee5fd73fc4b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovementDirectionUpDown: 0
