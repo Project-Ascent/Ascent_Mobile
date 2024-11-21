@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdMovement : MonoBehaviour
+public class BirdMovementLeftRight : MonoBehaviour
 {
     public bool isAttached = false;
     void OnTriggerEnter2D(Collider2D other)
