@@ -70,10 +70,15 @@ namespace HookControlState
         {
             if (other.CompareTag("Obstacles"))
             {
-                Leaf leaf = other.gameObject.GetComponent<Leaf>();
-                if (leaf != null)
+                GameObject otherGO = other.gameObject;
+                if (otherGO.gameObject.GetComponent<Leaf>() != null)
                 {
-                    leaf.IsAttachedThisLeaf = false;
+                    otherGO.gameObject.GetComponent<Leaf>().IsAttachedThisLeaf = false;
+                }
+
+                else if (otherGO.gameObject.GetComponent<Bird>() != null)
+                {
+                    otherGO.gameObject.GetComponent<Bird>().IsAttached = false;
                 }
             }
         }
