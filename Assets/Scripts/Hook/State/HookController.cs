@@ -99,6 +99,7 @@ namespace HookControlState
 
         public void SetHookEnabled(bool val)
         {
+            gameObject.SetActive(val);
             gameObject.GetComponent<SpriteRenderer>().enabled = val;
             gameObject.GetComponent<BoxCollider2D>().enabled = val;
         }
