@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public bool isTutorial = false;
+    public bool IsTutorial { get; set; } = false;
 
 
     void Awake()
@@ -26,15 +26,4 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-
-    public bool GetIsTutorial()
-    {
-        return isTutorial;
-    }
-
-    public void SetIsTutorial(bool isTutorial)
-    {
-        this.isTutorial = isTutorial;
-    }
-
 }
