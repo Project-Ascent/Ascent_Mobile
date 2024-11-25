@@ -45,8 +45,6 @@ namespace HookControlState
 
         void MoveHookTowardsTarget()
         {
-            hookController.gameObject.SetActive(true);
-
             Vector2 worldHookPosition = hookController.transform.position;
 
             hookController.transform.position = Vector2.MoveTowards

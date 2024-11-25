@@ -40,12 +40,9 @@ namespace HookControlState
 
         void RetractHook()
         {
-            hookController.transform.position = Vector2.MoveTowards(hookController.transform.position, hookController.PlayerPosition, Time.deltaTime * 1000);
-            if (Vector2.Distance(hookController.PlayerPosition, hookController.transform.position) < 0.1f)
-            {
-                hookController.GetComponent<DistanceJoint2D>().enabled = false;
-                hookController.SetHookEnabled(false);
-            }
+            hookController.SetHookEnabled(false);
+            hookController.GetComponent<DistanceJoint2D>().enabled = false;
+            hookController.transform.position = hookController.PlayerPosition;
         }
     }
 }
